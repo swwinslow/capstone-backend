@@ -20,6 +20,11 @@
 	$password = "B5C8zUw9a1H";
 	$dbname = "midwest_radio";
 
+	// $servername = "localhost:8080";
+	// $username = "root";
+	// $password = "root";
+	// $dbname = "radio";
+
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -40,23 +45,46 @@
 
 
 	//inserts the variables into a SQL query
-	$sql2 = "SELECT * FROM popular ORDER BY votes DESC";
+	$sql2 = "SELECT * FROM stations WHERE active = 1";
 	$result = $conn->query($sql2);
 
+	$sql3 = "SELECT * FROM stations WHERE active = 0";
+	$result3 = $conn->query($sql3);
+
+	$sql4 = "SELECT * FROM stations WHERE deleted = 1";
+	$result4 = $conn->query($sql4);
+
 	if ($result->num_rows > 0){
-		$stations = array();
-		$count = 0;
-		while($row = $result->fetch_assoc()) {
+		$activeStations = array();
+		$pendingStations = array();
+		$deletedStations = array();
 
-			$station = $row;
-
-			 array_push($stations, $station);
+		while($row1 = $result->fetch_assoc()) {
+				$activeStation = $row1;
+				array_push($activeStations, $activeStation);
 		}
+
+		while($row2 = $result3->fetch_assoc()) {
+				$pendStation = $row2;
+				array_push($pendingStations, $pendStation);
+		}
+
+		while($row3 = $result4->fetch_assoc()) {
+				$delStation = $row3;
+				array_push($deletedStations, $delStation);
+		}
+
+		$AllStations = $activeStations;
+
+		//  $AllStations = ['active' => $activeStations];
         $response = array('status'=>200);
-		$response["data"] = $stations;
+		$response["active"] = $AllStations;
+		$response["pending"] = $pendingStations;
+		$response["deleted"] = $deletedStations;
+
 	} else {
 		http_response_code(200);
-		$response = array("error"=>"No Dogs", "status"=>403);
+		$response = array("error"=>"No Stations", "status"=>403);
 	}
 
 	echo json_encode($response);

@@ -40,7 +40,7 @@
 
 
 	//inserts the variables into a SQL query
-	$sql2 = "SELECT * FROM popular";
+	$sql2 = "SELECT * FROM popular ORDER BY votes DESC";
 	$result = $conn->query($sql2);
 
 	if ($result->num_rows > 0){
