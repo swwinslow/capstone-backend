@@ -38,25 +38,47 @@
 	//assigns the posted values to variables
 	$input = $_GET;
 
-
 	//inserts the variables into a SQL query
-	$sql2 = "SELECT p.votes, s.long_name, s.short_name FROM popular p, stations s WHERE p.stations_id = s.id AND s.active = 1  ORDER BY votes DESC";
+	$sql2 = "SELECT DISTINCT type FROM stations";
 	$result = $conn->query($sql2);
 
+	$sql3 = "SELECT DISTINCT genre FROM stations";
+	$result3 = $conn->query($sql3);
+
+	$sql4 = "SELECT DISTINCT state FROM stations";
+	$result4 = $conn->query($sql4);
+
 	if ($result->num_rows > 0){
-		$stations = array();
-		$count = 0;
-		while($row = $result->fetch_assoc()) {
+		$typeArray = array();
+		$genreArray = array();
+		$statesArray = array();
 
-			$station = $row;
-
-			 array_push($stations, $station);
+		while($row1 = $result->fetch_assoc()) {
+				$type = $row1;
+				array_push($typeArray, $type);
 		}
+
+		while($row2 = $result3->fetch_assoc()) {
+				$genre = $row2;
+				array_push($genreArray, $genre);
+		}
+
+		while($row3 = $result4->fetch_assoc()) {
+				$state = $row3;
+				array_push($statesArray, $state);
+		}
+
+		$AllStations = $activeStations;
+
+		//  $AllStations = ['active' => $activeStations];
         $response = array('status'=>200);
-		$response["data"] = $stations;
+		$response["types"] = $typeArray;
+		$response["genre"] = $genreArray;
+		$response["states"] = $statesArray;
+
 	} else {
 		http_response_code(200);
-		$response = array("error"=>"No Dogs", "status"=>403);
+		$response = array("error"=>"No Stations", "status"=>403);
 	}
 
 	echo json_encode($response);
