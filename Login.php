@@ -59,34 +59,54 @@ if ($result->num_rows > 0){
     $resultCheck = $conn->query($sqlCheck);
 
     if ($resultCheck->num_rows > 0){
-      $session = array();
+      $sessionArray = array();
 
-      while($row = $resultCheck->fetch_assoc()) {
-        $sessoin = $row['timestamp'];
+      while($row2 = $resultCheck->fetch_assoc()) {
+        $sessoin = $row2['timestamp'];
+        $id = $row2['id'];
+        array_push($sessionArray, $sessoin);
+      }
+      $timstampUNIX = strtotime($sessoin);
+      $currentStamp = time();
+
+      $difference = $currentStamp - $timstampUNIX;
+
+      $timeLength = 2*24*60*60;
+
+      if($timeLength < $difference){
+        //renew...
+
+        //deleting the session
+        $deleteSQL = "DELETE FROM `session` WHERE id = $id";
+        $result = $conn->query($deleteSQL);
+
+        //creating the new session
+        $key = bin2hex(openssl_random_pseudo_bytes(64));
+        $sqlCreate= "INSERT INTO `session` (`session_key`, `user_id`) VALUES ('$key','$user')";
+        $sqlCreateResult = $conn->query($sqlCreate);
+
+        //returning the new seesion
+        $sqlGetSession = "SELECT * FROM `session` WHERE user_id='$user'";
+        $sesGetResult = $conn->query($sqlGetSession);
+
+        if ($sesGetResult->num_rows > 0){
+        		while($row = $sesGetResult->fetch_assoc()) {
+        			$station = $row;
+        		}
+          http_response_code(200);
+          $response = array("session"=> $station, "status"=>200);
+        }
+        http_response_code(200);
+        $response = array("session"=>"lol", "status"=>200);
+
+      } else {
+        //keep
+        http_response_code(200);
+        $response = array("no error"=>"No User, no error", "session"=> 'lol', "status"=>403);
+
       }
     }
 
-
-    $key = "d";
-
-    $sqlSession= "INSERT INTO `session` (`session_key`, `user_id`) VALUES ('$key','$user')";
-    //
-    $sessionResult = $conn->query($sqlSession);
-
-    $sqlGet = "SELECT * FROM `session` WHERE user_id='$user'";
-    //
-    $sesGet = $conn->query($sqlGet);
-  //
-    if ($sesGet->num_rows > 0){
-      $array = array();
-
-    		while($row2 = $sesGet->fetch_assoc()) {
-    			$station = $row2;
-    			 array_push($array, $station);
-    		}
-      http_response_code(200);
-      $response = array("session"=> $array, "status"=>200);
-    }
 
   } else {
     http_response_code(200);
@@ -94,14 +114,4 @@ if ($result->num_rows > 0){
   }
 
   echo json_encode($response);
-
-//check to see if the user has already created a session...
-
-//if the timestamp is valid -> return it back
-//if not, then delete and then create a new sesion keyboard
-
-//
-
-//  return bin2hex(openssl_random_pseudo_bytes(64));
-
 ?>
