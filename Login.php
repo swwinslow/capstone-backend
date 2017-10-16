@@ -48,6 +48,7 @@ AND password_hash =  '$hashedPassword'";
 
 $result = $conn->query($sqlEnter);
 
+
 if ($result->num_rows > 0){
 
     while($row = $result->fetch_assoc()) {
@@ -64,7 +65,7 @@ if ($result->num_rows > 0){
       while($row2 = $resultCheck->fetch_assoc()) {
         $oldSession = $row2;
         $sessoin = $row2['timestamp'];
-        $id = $row2['id'];
+        $id = $row2['session_id'];
         array_push($sessionArray, $sessoin);
       }
       $timstampUNIX = strtotime($sessoin);
@@ -78,7 +79,7 @@ if ($result->num_rows > 0){
         //renew...
 
         //deleting the session
-        $deleteSQL = "DELETE FROM `session` WHERE id = $id";
+        $deleteSQL = "DELETE FROM `session` WHERE session_id = '$id'";
         $result = $conn->query($deleteSQL);
 
         //creating the new session
@@ -105,14 +106,33 @@ if ($result->num_rows > 0){
         //keep
         http_response_code(200);
         $response = array("session"=> $oldSession, "status"=>200);
+      }
+    } else {
+      // there is no session created
+      $key = bin2hex(openssl_random_pseudo_bytes(64));
+      $sqlCreate= "INSERT INTO `session` (`session_key`, `user_id`) VALUES ('$key','$user')";
+      $sqlCreateResult = $conn->query($sqlCreate);
 
+      //returning the new seesion
+      $sqlGetSession = "SELECT * FROM `session` WHERE user_id='$user'";
+      $sesGetResult = $conn->query($sqlGetSession);
+
+      if ($sesGetResult->num_rows > 0){
+          while($row = $sesGetResult->fetch_assoc()) {
+            $ThisSession = $row;
+          }
+        http_response_code(200);
+        $response = array("session"=> $ThisSession, "status"=>200);
+      } else {
+        http_response_code(200);
+        $response = array("error"=> 'we have hit an error', "status"=>200);
       }
     }
 
 
   } else {
     http_response_code(200);
-    $response = array("error"=>"No User", "password"=> $hashedPassword, "status"=>403);
+    $response = array("error"=>"No User", "status"=>403);
   }
 
   echo json_encode($response);
