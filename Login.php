@@ -62,6 +62,7 @@ if ($result->num_rows > 0){
       $sessionArray = array();
 
       while($row2 = $resultCheck->fetch_assoc()) {
+        $oldSession = $row2;
         $sessoin = $row2['timestamp'];
         $id = $row2['id'];
         array_push($sessionArray, $sessoin);
@@ -91,18 +92,19 @@ if ($result->num_rows > 0){
 
         if ($sesGetResult->num_rows > 0){
         		while($row = $sesGetResult->fetch_assoc()) {
-        			$station = $row;
+        			$ThisSession = $row;
         		}
           http_response_code(200);
-          $response = array("session"=> $station, "status"=>200);
+          $response = array("session"=> $ThisSession, "status"=>200);
+        } else {
+          http_response_code(200);
+          $response = array("error"=> 'we have hit an error', "status"=>200);
         }
-        http_response_code(200);
-        $response = array("session"=>"lol", "status"=>200);
 
       } else {
         //keep
         http_response_code(200);
-        $response = array("no error"=>"No User, no error", "session"=> 'lol', "status"=>403);
+        $response = array("session"=> $oldSession, "status"=>200);
 
       }
     }
