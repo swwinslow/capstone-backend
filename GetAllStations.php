@@ -48,7 +48,7 @@
 	$sql2 = "SELECT * FROM stations WHERE active = 1";
 	$result = $conn->query($sql2);
 
-	$sql3 = "SELECT * FROM stations WHERE active = 0";
+	$sql3 = "SELECT * FROM stations WHERE active = 0 AND deleted = 0";
 	$result3 = $conn->query($sql3);
 
 	$sql4 = "SELECT * FROM stations WHERE deleted = 1";

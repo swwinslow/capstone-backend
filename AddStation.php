@@ -48,16 +48,33 @@
   $type = mysql_escape_string($_POST['type']);
   $genre = mysql_escape_string($_POST['genre']);
   $stream = mysql_escape_string($_POST['stream']);
+	$active = mysql_escape_string($_POST['active']);
 
-  $sqlEnter = "INSERT INTO stations (frequency, long_name, short_name, city, state, slogan, active, deleted, type, genre, stream) VALUES ('$frequency', '$long_name', '$short_name', '$city', '$state', '$slogan', 0, 0, '$type', '$genre', '$stream')";
 
-	//executes the SQL above, sends error if there is an error
+  $sqlEnter = "INSERT INTO stations (frequency, long_name, short_name, city, state, slogan, active, deleted, type, genre, stream) VALUES ('$frequency', '$long_name', '$short_name', '$city', '$state', '$slogan', '$active', 0, '$type', '$genre', '$stream')";
+
 	if ($conn->query($sqlEnter) === TRUE) {
+
+		$sql2 = "SELECT * FROM stations WHERE long_name = '$long_name' AND short_name = '$short_name' AND stream='$stream'";
+		$result = $conn->query($sql2);
+
+		//todo look into the larger ids of the two if they are the same...
+
+		if ($result->num_rows > 0){
+			$stations = array();
+			$count = 0;
+			while($row = $result->fetch_assoc()) {
+
+				$station = $row;
+				array_push($stations, $station);
+			}
+		}
 	    http_response_code(200);
-		$response = array("error"=>"New station has been added","status"=>200);
+		$response = array("status"=>"Station has been editied", "stations" => $stations, "code"=>200);
 	} else {
 	    http_response_code(200);
-		$response = array("error"=>"Add Station Failed","status"=>403);
+		$response = array("error"=>"Edit Station has final Failed","status"=>403);
 	}
 	echo json_encode($response);
+?>
 ?>

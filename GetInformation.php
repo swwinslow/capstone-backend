@@ -39,13 +39,13 @@
 	$input = $_GET;
 
 	//inserts the variables into a SQL query
-	$sql2 = "SELECT DISTINCT type FROM stations";
+	$sql2 = "SELECT type FROM stations WHERE active = 1";
 	$result = $conn->query($sql2);
 
-	$sql3 = "SELECT DISTINCT genre FROM stations";
+	$sql3 = "SELECT genre FROM stations WHERE active = 1";
 	$result3 = $conn->query($sql3);
 
-	$sql4 = "SELECT DISTINCT state FROM stations";
+	$sql4 = "SELECT state FROM stations WHERE active = 1";
 	$result4 = $conn->query($sql4);
 
 	if ($result->num_rows > 0){
@@ -58,15 +58,20 @@
 				array_push($typeArray, $type);
 		}
 
+
+
 		while($row2 = $result3->fetch_assoc()) {
 				$genre = $row2;
 				array_push($genreArray, $genre);
 		}
 
+
+
 		while($row3 = $result4->fetch_assoc()) {
 				$state = $row3;
 				array_push($statesArray, $state);
 		}
+
 
 		$AllStations = $activeStations;
 
