@@ -76,7 +76,7 @@
 		$AllStations = $activeStations;
 
 		//  $AllStations = ['active' => $activeStations];
-        $response = array('status'=>200);
+    $response = array('status'=>200);
 		$response["types"] = $typeArray;
 		$response["genre"] = $genreArray;
 		$response["states"] = $statesArray;

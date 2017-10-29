@@ -79,8 +79,8 @@ if ($result->num_rows > 0){
 
 } else {
       // there is no session created
-      http_response_code(200);
-      $response = array("auth"=> "Failed", "status"=>200);
+      http_response_code(403);
+      $response = array("auth"=> "Failed", "status"=>403);
 }
 
   echo json_encode($response);

@@ -129,7 +129,7 @@ if ($result->num_rows > 0){
 
 
   } else {
-    http_response_code(200);
+    http_response_code(403);
     $response = array("error"=>"No User", "status"=>403);
   }
 
