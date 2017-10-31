@@ -48,15 +48,19 @@
 	$sql2 = "SELECT * FROM stations WHERE active = 1";
 	$result = $conn->query($sql2);
 
-	$sql3 = "SELECT * FROM stations WHERE active = 0 AND deleted = 0";
+	$sql3 = "SELECT * FROM stations WHERE active = 0 AND deleted = 0 AND user_entered = 0";
 	$result3 = $conn->query($sql3);
 
 	$sql4 = "SELECT * FROM stations WHERE deleted = 1";
 	$result4 = $conn->query($sql4);
 
+	$sql5 = "SELECT * FROM stations WHERE active = 0 AND deleted = 0 AND user_entered = 1";
+	$result5 = $conn->query($sql5);
+
 	if ($result->num_rows > 0){
 		$activeStations = array();
 		$pendingStations = array();
+		$pendingUEStations = array();
 		$deletedStations = array();
 
 		while($row1 = $result->fetch_assoc()) {
@@ -74,12 +78,18 @@
 				array_push($deletedStations, $delStation);
 		}
 
+		while($row3 = $result5->fetch_assoc()) {
+				$station = $row3;
+				array_push($pendingUEStations, $station);
+		}
+
 		$AllStations = $activeStations;
 
 		//  $AllStations = ['active' => $activeStations];
         $response = array('status'=>200);
 		$response["active"] = $AllStations;
 		$response["pending"] = $pendingStations;
+		$response["pendingUE"] = $pendingUEStations;
 		$response["deleted"] = $deletedStations;
 
 	} else {
