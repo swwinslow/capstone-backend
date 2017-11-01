@@ -38,6 +38,7 @@ if ($conn->connect_error) {
 
 $token = mysql_escape_string($_POST['token']);
 
+$hashedPassword =  hash('sha512', $_POST['password']);
 
 $sqlEnter = "SELECT *
 FROM  `token`
@@ -45,43 +46,45 @@ WHERE token_string =  '$token'";
 
 $result = $conn->query($sqlEnter);
 
+
 if ($result->num_rows > 0){
 
-    while($row = $result->fetch_assoc()) {
-      $user = $row['users_table_id'];
-      $timestamp = $row['timestamp'];
-    }
+  while($row = $result->fetch_assoc()) {
+    $user = $row['users_table_id'];
+    $timestamp = $row['timestamp'];
+  }
 
-    $timstampUNIX = strtotime($timestamp);
-    $currentStamp = time();
+  $timstampUNIX = strtotime($timestamp);
+  $currentStamp = time();
 
-    $difference = $currentStamp - $timstampUNIX;
+  $timeLength = $currentStamp - $timstampUNIX;
 
-    //5 minutes
-    $timeLength = 60*5;
+  //5 minutes
+  $timeLength = 600;
 
-          if($timeLength > $difference){
 
-            //deleting the session
-            $deleteSQL = "DELETE FROM `token` WHERE token_string = '$token'";
-            $deleteSQLResult = $conn->query($deleteSQL);
 
-            //creating the new session
-              http_response_code(403);
-              $response = array("auth"=> "Failed. Delete Token", "status"=>403);
+      if($timeLength > $difference){
 
-          } else {
-            //keep
-            http_response_code(200);
-            $response = array("auth"=> "Success", "status"=>200);
-          }
+        $sqlCheck = "UPDATE users_table SET `password_hash` = '$hashedPassword' WHERE id='$user'";
+        $resultCheck = $conn->query($sqlCheck);
 
-} else {
-      // there is no session created
-      http_response_code(403);
-      $response = array("auth"=> "Failed. Token not found", "status"=>403);
-}
+        $deleteSQL = "DELETE FROM `token` WHERE token_string = '$token'";
+        $deleteSQLResult = $conn->query($deleteSQL);
+
+        http_response_code(200);
+        $response = array("data"=> "Password Updated", "time"=> $difference, "status"=>200);
+
+      } else {
+        http_response_code(403);
+        $response = array("error"=>"error the time is messed up", "status"=>403);
+      }
+
+
+  } else {
+    http_response_code(403);
+    $response = array("error"=>"error. there was no user", "status"=>403);
+  }
 
   echo json_encode($response);
-
 ?>

@@ -50,12 +50,10 @@
 		while($row = $resultEmailQuery->fetch_assoc()) {
 				$id =  $row['id'];
 		}
-    //
-    // $id = 8;
-    //
+
     $token = bin2hex(openssl_random_pseudo_bytes(64));
     //
-    $deleteTokens = "DELETE FROM `token` WHERE users_table_id = 8";
+    $deleteTokens = "DELETE FROM `token` WHERE users_table_id = '$id'";
     $deleteTokensQuery = $conn->query($deleteTokens);
     //
     $tokenQuery = "INSERT INTO  `token` (  `id` ,  `users_table_id` ,  `timestamp` ,  `token_string` ) VALUES ( NULL ,  '$id', NOW( ) ,  '$token' );";
