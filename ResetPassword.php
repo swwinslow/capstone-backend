@@ -49,6 +49,7 @@
 
 		while($row = $resultEmailQuery->fetch_assoc()) {
 				$id =  $row['id'];
+				$email =  $row['email'];
 		}
 
     $token = bin2hex(openssl_random_pseudo_bytes(64));
@@ -60,15 +61,17 @@
   	$resultTokenQuery = $conn->query($tokenQuery);
 
 
-    $message = "http://localhost:8888/capstone-frontend-joint/#/resetpassword/";
+    $message = "Here is the link to reset your password: http://localhost:8888/capstone-frontend-joint/#/resetpassword/";
     //
     $fullMessage = $message . $token;
+
+		$newMessage = $fullMessage . "\r\n If you do not recongize this, please ignore"
     //
     // // In case any of our lines are larger than 70 characters, we should use wordwrap()
     $message123 = wordwrap($fullMessage, 70, "\r\n");
     //
     // // Send
-    mail('swwinslow@gmail.com', 'New Station Added', $message123);
+    mail($email, 'Reset Password', $message123);
 
 
   $response = array('status'=>200);
