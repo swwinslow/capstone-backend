@@ -15,7 +15,6 @@
 	    }
 	}
 
-
   $servername = "willshar.ipowermysql.com";
   $username = "csstudent";
   $password = "DrLinRules";
@@ -60,18 +59,15 @@
     $tokenQuery = "INSERT INTO  `token` (  `id` ,  `users_table_id` ,  `timestamp` ,  `token_string` ) VALUES ( NULL ,  '$id', NOW( ) ,  '$token' );";
   	$resultTokenQuery = $conn->query($tokenQuery);
 
+    $message = "Here is the link you requsted. \r\r\r If this is a unknown, please ignore. \r\r http://localhost:8888/capstone-frontend-joint/#/resetpassword/". $token;
 
-    $message = "Here is the link to reset your password: http://localhost:8888/capstone-frontend-joint/#/resetpassword/";
-    //
-    $fullMessage = $message . $token;
-
-		$newMessage = $fullMessage . "\r\n If you do not recongize this, please ignore"
+		// $newMessage = $message . "\r\n If you do not recongize this, please ignore.";
     //
     // // In case any of our lines are larger than 70 characters, we should use wordwrap()
-    $message123 = wordwrap($fullMessage, 70, "\r\n");
+    // $fullEmailMessage = wordwrap($newMessage, 70, "\r\n");
     //
     // // Send
-    mail($email, 'Reset Password', $message123);
+    mail("swwinslow@gmail.com", 'Reset Password', $message);
 
 
   $response = array('status'=>200);

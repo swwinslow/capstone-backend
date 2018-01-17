@@ -15,13 +15,18 @@
 	    }
 	}
 
-  $servername = "willshar.ipowermysql.com";
-  $username = "admin_user";
-  $password = "B5C8zUw9a1H";
-  $dbname = "midwest_radio";
+	$servername = "willshar.ipowermysql.com";
+	$username = "admin_user";
+	$password = "B5C8zUw9a1H";
+	$dbname = "midwest_radio";
+
+	$usernameADMIN = "csstudent";
+	$passwordADMIN = "DrLinRules";
+	$dbnameADMIN = "cs495_admin";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
+	$ADMINconn = new mysqli($servername, $usernameADMIN, $passwordADMIN, $dbnameADMIN);
 
 	header("Content-type: application/json");
 
@@ -42,16 +47,18 @@
 	$short_name = mysql_escape_string($_POST['short_name']);
 	$long_name = mysql_escape_string($_POST['long_name']);
 	$frequency = mysql_escape_string($_POST['frequency']);
-  $city = mysql_escape_string($_POST['city']);
-  $state = mysql_escape_string($_POST['state']);
-  $slogan = mysql_escape_string($_POST['slogan']);
-  $type = mysql_escape_string($_POST['type']);
-  $genre = mysql_escape_string($_POST['genre']);
-  $stream = mysql_escape_string($_POST['stream']);
+	$city = mysql_escape_string($_POST['city']);
+	$state = mysql_escape_string($_POST['state']);
+	$slogan = mysql_escape_string($_POST['slogan']);
+	$type = mysql_escape_string($_POST['type']);
+	$genre = mysql_escape_string($_POST['genre']);
+	$stream = mysql_escape_string($_POST['stream']);
 	$active = mysql_escape_string($_POST['active']);
+	$user_entered = mysql_escape_string($_POST['user_entered']);
 
+	//todo check to see if the slogan has quotes around it.
 
-  $sqlEnter = "INSERT INTO stations (frequency, long_name, short_name, city, state, slogan, active, deleted, type, genre, stream) VALUES ('$frequency', '$long_name', '$short_name', '$city', '$state', '$slogan', '$active', 0, '$type', '$genre', '$stream')";
+	$sqlEnter = "INSERT INTO stations (frequency, long_name, short_name, city, state, slogan, active, deleted, type, genre, stream, user_entered) VALUES ('$frequency', '$long_name', '$short_name', '$city', '$state', '$slogan', '$active', 0, '$type', '$genre', '$stream', '$user_entered')";
 
 	if ($conn->query($sqlEnter) === TRUE) {
 
@@ -69,11 +76,30 @@
 				array_push($stations, $station);
 			}
 		}
+		if($user_entered == 0) {
+
+            $getAdminUsersSQL = "SELECT * FROM users_table WHERE winner = 1";
+            $adminUsers = $ADMINconn->query($getAdminUsersSQL);
+
+
+
+            $message = "A new station has been added by a user: 'http://willshare.com/cs495/admin/frontend/#/'";
+
+            //
+            // // In case any of our lines are larger than 70 characters, we should use wordwrap()
+            $message123 = wordwrap($message, 70, "\r\n");
+            //
+            // Making admins get this message
+            while($rowUser = $adminUsers->fetch_assoc()) {
+
+                mail($rowUser['email'], 'A New Station has been added', $message123);
+            }
+        }
 	    http_response_code(200);
-		$response = array("status"=>"Station has been editied", "stations" => $stations, "code"=>200);
+		$response = array("status"=>"Station has been added", "stations" => $stations, "code"=>200);
 	} else {
 	    http_response_code(200);
-		$response = array("error"=>"Edit Station has final Failed","status"=>403);
+		$response = array("error"=>"Added Station has failed","status"=>403);
 	}
 	echo json_encode($response);
 

@@ -38,9 +38,7 @@
 	//assigns the posted values to variables
 	$inputJSON = file_get_contents('php://input');
 	$input = json_decode( $inputJSON, TRUE ); //convert JSON into array
-  $email = mysql_escape_string($_POST['email']);
-
-  $hashedPassword =  hash('sha512', $_POST['password']);
+  $id = mysql_escape_string($_POST['user_id']);
 
 	$session_id = mysql_escape_string($_POST['session_id']);
 	$session_key = mysql_escape_string($_POST['session_key']);
@@ -78,19 +76,17 @@
 	              $response = array("auth"=> "Failed", "status"=>200);
 
 	          } else {
+					$sqlEnter = "UPDATE users_table SET winner = 1 WHERE id = '$id'";
 
-							$sqlEnter = "INSERT INTO users_table (email, password_hash) VALUES ('$email','$hashedPassword')";
-
-							//executes the SQL above, sends error if there is an error
-							if ($conn->query($sqlEnter) === TRUE) {
-									http_response_code(200);
-								$response = array("error"=>"New station has been added","status"=>200);
-							} else {
-									http_response_code(200);
-									$response = array("error"=>"Add Station Failed","status"=>403);
-							}
+					//executes the SQL above, sends error if there is an error
+					if ($conn->query($sqlEnter) === TRUE) {
+							http_response_code(200);
+						$response = array("error"=>"New station has been added","status"=>200);
+					} else {
+							http_response_code(200);
+							$response = array("error"=>"Add Station Failed","status"=>403);
+					}
 	          }
-
 	} else {
 	      // there is no session created
 	      http_response_code(403);

@@ -58,8 +58,9 @@
   $stream = mysql_escape_string($_POST['stream']);
   $activeStatus = mysql_escape_string($_POST['active']);
 	$deletedStatus = mysql_escape_string($_POST['delete']);
+	$user_entered = mysql_escape_string($_POST['user_entered']);
 
-  $sqlEnter = "UPDATE stations SET frequency = '$frequency', long_name = '$long_name', short_name = '$short_name', city = '$city', state = '$state', slogan = '$slogan', active = $activeStatus, deleted = $deletedStatus, type = '$type', genre = '$genre', stream = '$stream' WHERE id = '$id'";
+  $sqlEnter = "UPDATE stations SET frequency = '$frequency', long_name = '$long_name', short_name = '$short_name', city = '$city', state = '$state', slogan = '$slogan', active = $activeStatus, deleted = $deletedStatus, type = '$type', genre = '$genre', stream = '$stream', user_entered = '$user_entered' WHERE id = '$id'";
 
 	//executes the SQL above, sends error if there is an error
 	if ($conn->query($sqlEnter) === TRUE) {

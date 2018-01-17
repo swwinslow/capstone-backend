@@ -38,10 +38,8 @@
 	//assigns the posted values to variables
 	$inputJSON = file_get_contents('php://input');
 	$input = json_decode( $inputJSON, TRUE ); //convert JSON into array
-  $email = mysql_escape_string($_POST['email']);
-
-  $hashedPassword =  hash('sha512', $_POST['password']);
-
+  
+  $id = mysql_escape_string($_POST['id']);
 	$session_id = mysql_escape_string($_POST['session_id']);
 	$session_key = mysql_escape_string($_POST['session_key']);
 
@@ -79,7 +77,8 @@
 
 	          } else {
 
-							$sqlEnter = "INSERT INTO users_table (email, password_hash) VALUES ('$email','$hashedPassword')";
+							// $sqlEnter = "INSERT INTO users_table (email, password_hash) VALUES ('$email','$hashedPassword')";
+              $sqlEnter = "DELETE FROM `users_table` WHERE id = '$id'";
 
 							//executes the SQL above, sends error if there is an error
 							if ($conn->query($sqlEnter) === TRUE) {
