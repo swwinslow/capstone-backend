@@ -16,43 +16,42 @@ if (!function_exists('http_response_code'))
     }
 }
 
-$servername = "willshar.ipowermysql.com";
-$username = "csstudent";
-$password = "DrLinRules";
-$dbname = "cs495_admin";
+    $servername = "willshar.ipowermysql.com";
+    $username = "csstudent";
+    $password = "DrLinRules";
+    $dbname = "cs495_admin";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-header("Content-type: application/json");
+    header("Content-type: application/json");
 
-$response = array("message"=>"Something went wrong.","status"=>500);
+    $response = array("message"=>"Something went wrong.","status"=>500);
 
-// Check connection
-if ($conn->connect_error) {
-  http_response_code(500);
-  echo json_encode(array("message"=>"Connection failed: " . $conn->connect_error,"status"=>500));
-  die("Connection failed: " . $conn->connect_error);
-  exit;
-}
+    // Check connection
+    if ($conn->connect_error) {
+      http_response_code(500);
+      echo json_encode(array("message"=>"Connection failed: " . $conn->connect_error,"status"=>500));
+      die("Connection failed: " . $conn->connect_error);
+      exit;
+    }
 
-$token = mysql_escape_string($_POST['token']);
+    $token = mysql_escape_string($_POST['token']);
 
-$hashedPassword =  hash('sha512', $_POST['password']);
+    $hashedPassword =  hash('sha512', $_POST['password']);
 
-$sqlEnter = "SELECT *
-FROM  `token`
-WHERE token_string =  '$token'";
+    $sqlEnter = "SELECT *
+    FROM  `token`
+    WHERE token_string =  '$token'";
 
-$result = $conn->query($sqlEnter);
+    $result = $conn->query($sqlEnter);
 
+    if ($result->num_rows > 0){
 
-if ($result->num_rows > 0){
-
-  while($row = $result->fetch_assoc()) {
-    $user = $row['users_table_id'];
-    $timestamp = $row['timestamp'];
-  }
+      while($row = $result->fetch_assoc()) {
+        $user = $row['users_table_id'];
+        $timestamp = $row['timestamp'];
+      }
 
   $timstampUNIX = strtotime($timestamp);
   $currentStamp = time();

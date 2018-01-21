@@ -81,10 +81,10 @@
 					//executes the SQL above, sends error if there is an error
 					if ($conn->query($sqlEnter) === TRUE) {
 							http_response_code(200);
-						$response = array("error"=>"New station has been added","status"=>200);
+                        $response = array("error"=>"Admin has been update","status"=>200);
 					} else {
 							http_response_code(200);
-							$response = array("error"=>"Add Station Failed","status"=>403);
+                        $response = array("error"=>"Admin COULD not be updated","status"=>200);
 					}
 	          }
 	} else {

@@ -2,25 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="caeb3cab-51c6-44dd-b1fd-b3071c82e863" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DeleteAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AddStation.php" afterPath="$PROJECT_DIR$/AddStation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EditSingleStation.php" afterPath="$PROJECT_DIR$/EditSingleStation.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReportStation.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GetAllDeletedStations.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/UserAddedStation.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeleteAdmin.php" afterPath="$PROJECT_DIR$/DeleteAdmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MakeAdmin.php" afterPath="$PROJECT_DIR$/MakeAdmin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResetPassword.php" afterPath="$PROJECT_DIR$/ResetPassword.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SessionCheck.php" afterPath="$PROJECT_DIR$/SessionCheck.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UserAddedStation.php" afterPath="$PROJECT_DIR$/UserAddedStation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/createUsers.php" afterPath="$PROJECT_DIR$/createUsers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SubmitResetPassword.php" afterPath="$PROJECT_DIR$/SubmitResetPassword.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UpdateStation.php" afterPath="$PROJECT_DIR$/UpdateStation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/changePassword.php" afterPath="$PROJECT_DIR$/changePassword.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend-joint/controllers/UserController.js" afterPath="$PROJECT_DIR$/../capstone-frontend-joint/controllers/UserController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend-joint/factories/api.js" afterPath="$PROJECT_DIR$/../capstone-frontend-joint/factories/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend-joint/index.html" afterPath="$PROJECT_DIR$/../capstone-frontend-joint/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend-joint/styles/style.css" afterPath="$PROJECT_DIR$/../capstone-frontend-joint/styles/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend-joint/views/select.html" afterPath="$PROJECT_DIR$/../capstone-frontend-joint/views/select.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend-joint/views/ForgotPassword.html" afterPath="$PROJECT_DIR$/../capstone-frontend-joint/views/ForgotPassword.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend-joint/views/userScreen.html" afterPath="$PROJECT_DIR$/../capstone-frontend-joint/views/userScreen.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend/controllers/activeStationsController.js" afterPath="$PROJECT_DIR$/../capstone-frontend/controllers/activeStationsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend/controllers/pendingStationsController.js" afterPath="$PROJECT_DIR$/../capstone-frontend/controllers/pendingStationsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend/controllers/submitStationController.js" afterPath="$PROJECT_DIR$/../capstone-frontend/controllers/submitStationController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend/controllers/deletedStationsController.js" afterPath="$PROJECT_DIR$/../capstone-frontend/controllers/deletedStationsController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend/controllers/reportController.js" afterPath="$PROJECT_DIR$/../capstone-frontend/controllers/reportController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend/factories/api.js" afterPath="$PROJECT_DIR$/../capstone-frontend/factories/api.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend/views/activeStations.html" afterPath="$PROJECT_DIR$/../capstone-frontend/views/activeStations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend/views/deletedStations.html" afterPath="$PROJECT_DIR$/../capstone-frontend/views/deletedStations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend/views/pendingStations.html" afterPath="$PROJECT_DIR$/../capstone-frontend/views/pendingStations.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend/views/report.html" afterPath="$PROJECT_DIR$/../capstone-frontend/views/report.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../capstone-frontend/views/submit.html" afterPath="$PROJECT_DIR$/../capstone-frontend/views/submit.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,52 +36,26 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="MakeAdmin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MakeAdmin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="88" column="15" lean-forward="false" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="15" />
-              <folding>
-                <marker date="1516174244000" expanded="true" signature="1308:1420" ph="SELECT user_... " />
-                <marker date="1516174244000" expanded="true" signature="1878:1932" ph="DELETE FROM " />
-                <marker date="1516174244000" expanded="true" signature="2123:2173" ph="UPDATE users... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserInformation.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserInformation.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="40" column="23" lean-forward="false" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
-              <folding>
-                <marker date="1509511587000" expanded="true" signature="1019:1070" ph="SElECT email... users_table" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="ResetPassword.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ResetPassword.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-225">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="1005">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
-                <marker date="1516174539000" expanded="true" signature="1134:1183" ph="SELECT id FR... users_table" />
-                <marker date="1516174539000" expanded="true" signature="1439:1487" ph="DELETE FROM " />
-                <marker date="1516174539000" expanded="true" signature="1570:1698" ph="INSERT INTO token" />
+                <marker date="1516484203000" expanded="true" signature="1134:1190" ph="SELECT id FR... users_table" />
+                <marker date="1516484203000" expanded="true" signature="1448:1496" ph="DELETE FROM " />
+                <marker date="1516484203000" expanded="true" signature="1574:1702" ph="INSERT INTO token" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddStation.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AddStation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AddStation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="94" column="29" lean-forward="false" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
+            <state relative-caret-position="195">
+              <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
               <folding>
                 <marker date="1516175584000" expanded="true" signature="1949:2219" ph="INSERT INTO stations... " />
                 <marker date="1516175584000" expanded="true" signature="2276:2381" ph="SELECT * FRO... stations" />
@@ -89,75 +65,123 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserAddedStation.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserAddedStation.php">
+      <file leaf-file-name="reportController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../capstone-frontend/controllers/reportController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="90" column="63" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="90" selection-end-column="63" />
+            <state relative-caret-position="330">
+              <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReportStation.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ReportStation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="730">
+              <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
               <folding>
-                <marker date="1516174847000" expanded="true" signature="1847:2103" ph="INSERT INTO stations... " />
-                <marker date="1516174847000" expanded="true" signature="2160:2265" ph="SELECT * FRO... stations" />
-                <marker date="1516174847000" expanded="true" signature="2574:2616" ph="SELECT * FRO... users_table" />
+                <marker date="1516492835000" expanded="true" signature="1469:1511" ph="SELECT * FRO... users_table" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="select.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/views/select.html">
+      <file leaf-file-name="GetAllStations.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GetAllStations.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/controllers/UserController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="67" lean-forward="false" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="67" />
-              <folding />
+            <state relative-caret-position="640">
+              <caret line="96" column="65" lean-forward="true" selection-start-line="95" selection-start-column="8" selection-end-line="96" selection-end-column="65" />
+              <folding>
+                <marker date="1509429517000" expanded="true" signature="1187:1226" ph="SELECT * FRO... stations" />
+                <marker date="1509429517000" expanded="true" signature="1272:1348" ph="SELECT * FRO... stations" />
+                <marker date="1509429517000" expanded="true" signature="1395:1435" ph="SELECT * FRO... stations" />
+                <marker date="1509429517000" expanded="true" signature="1482:1558" ph="SELECT * FRO... stations" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/factories/api.js">
+        <entry file="file://$PROJECT_DIR$/../capstone-frontend/factories/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+            <state relative-caret-position="547">
+              <caret line="61" column="42" lean-forward="false" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeleteAdmin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DeleteAdmin.php">
+      <file leaf-file-name="submit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../capstone-frontend/views/submit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="670">
-              <caret line="95" column="1" lean-forward="false" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
+            <state relative-caret-position="610">
+              <caret line="47" column="22" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deletedStationsController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../capstone-frontend/controllers/deletedStationsController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="467">
+              <caret line="178" column="40" lean-forward="false" selection-start-line="178" selection-start-column="19" selection-end-line="178" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubmitResetPassword.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SubmitResetPassword.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="39" lean-forward="false" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="39" />
               <folding>
-                <marker date="1516174049000" expanded="true" signature="1278:1390" ph="SELECT user_... " />
-                <marker date="1516174049000" expanded="true" signature="1825:1879" ph="DELETE FROM " />
-                <marker date="1516174049000" expanded="true" signature="2048:2098" ph="UPDATE users... " />
+                <marker date="1516482856000" expanded="true" signature="1191:1253" ph="SELECT users... token" />
+                <marker date="1516482856000" expanded="true" signature="1583:1631" ph="DELETE FROM " />
+                <marker date="1516482856000" expanded="true" signature="1708:1817" ph="INSERT INTO `token`... " />
+                <marker date="1516482856000" expanded="true" signature="1891:1952" ph="SELECT token... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/index.html">
+      <file leaf-file-name="GetAllPopular.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GetAllPopular.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1507958928000" expanded="true" signature="1079:1212" ph="SELECT p.vot... popular" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>User</find>
+      <find>mail(</find>
+      <find>sendEmail</find>
+      <find>http://localhost:8888/capstone-frontend-joint</find>
+      <find>makeE</find>
+      <find>makeA</find>
+      <find>DeleteStat</find>
+      <find>DeleteStationForever</find>
+      <find>GetAllDelet</find>
+      <find>GetAllDe</find>
+      <find>GetDeleted</find>
+      <find>getDeletedInformation</find>
+      <find>getInformation</find>
+      <find>getDelet</find>
+      <find>getUE</find>
+      <find>getUserEnteredPendingInformation</find>
+      <find>getUS</find>
+      <find>report</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -167,12 +191,26 @@
       <list>
         <option value="$PROJECT_DIR$/../capstone-frontend-joint/index.html" />
         <option value="$PROJECT_DIR$/DeleteAdmin.php" />
-        <option value="$PROJECT_DIR$/../capstone-frontend-joint/factories/api.js" />
-        <option value="$PROJECT_DIR$/MakeAdmin.php" />
-        <option value="$PROJECT_DIR$/ResetPassword.php" />
         <option value="$PROJECT_DIR$/UserAddedStation.php" />
-        <option value="$PROJECT_DIR$/../capstone-frontend-joint/controllers/UserController.js" />
         <option value="$PROJECT_DIR$/AddStation.php" />
+        <option value="$PROJECT_DIR$/UpdateStation.php" />
+        <option value="$PROJECT_DIR$/SubmitResetPassword.php" />
+        <option value="$PROJECT_DIR$/changePassword.php" />
+        <option value="$PROJECT_DIR$/../capstone-frontend-joint/views/ForgotPassword.html" />
+        <option value="$PROJECT_DIR$/ResetPassword.php" />
+        <option value="$PROJECT_DIR$/config/DeleteAdmin.php" />
+        <option value="$PROJECT_DIR$/MakeAdmin.php" />
+        <option value="$PROJECT_DIR$/../capstone-frontend-joint/factories/api.js" />
+        <option value="$PROJECT_DIR$/../capstone-frontend-joint/controllers/UserController.js" />
+        <option value="$PROJECT_DIR$/../capstone-frontend-joint/views/userScreen.html" />
+        <option value="$PROJECT_DIR$/../capstone-frontend/controllers/deletedStationsController.js" />
+        <option value="$PROJECT_DIR$/../capstone-frontend/views/activeStations.html" />
+        <option value="$PROJECT_DIR$/../capstone-frontend/views/deletedStations.html" />
+        <option value="$PROJECT_DIR$/../capstone-frontend/views/pendingStations.html" />
+        <option value="$PROJECT_DIR$/../capstone-frontend/views/report.html" />
+        <option value="$PROJECT_DIR$/../capstone-frontend/controllers/reportController.js" />
+        <option value="$PROJECT_DIR$/../capstone-frontend/factories/api.js" />
+        <option value="$PROJECT_DIR$/ReportStation.php" />
       </list>
     </option>
   </component>
@@ -206,7 +244,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -215,7 +252,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="capstone-frontend-joint" />
+              <option name="myItemId" value="capstone-frontend" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -225,7 +262,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="capstone-frontend-joint" />
+              <option name="myItemId" value="capstone-frontend" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -239,49 +276,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="capstone-frontend-joint" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="capstone-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="capstone-frontend-joint" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="capstone-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="capstone-frontend-joint" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="capstone-backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="capstone-frontend-joint" />
+              <option name="myItemId" value="capstone-frontend" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -295,7 +290,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="capstone-frontend-joint" />
+              <option name="myItemId" value="capstone-frontend" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -313,8 +308,23 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="capstone-backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="capstone-backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -323,6 +333,11 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
@@ -353,6 +368,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -389,18 +410,19 @@
       <workItem from="1516172375527" duration="2000" />
       <workItem from="1516172387806" duration="2000" />
       <workItem from="1516172395607" duration="15000" />
-      <workItem from="1516172437204" duration="2617000" />
+      <workItem from="1516172437204" duration="2919000" />
+      <workItem from="1516482277501" duration="6804000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2636000" />
+    <option name="totallyTimeSpent" value="9742000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="27" y="23" width="1625" height="941" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24984616" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1643077" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -430,14 +452,19 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/EditSingleStation.php">
+    <entry file="file://$PROJECT_DIR$/DeleteAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1509840266000" expanded="true" signature="2162:2467" ph="UPDATE stati... " />
-            <marker date="1509840266000" expanded="true" signature="2584:2623" ph="SELECT * FRO... stations" />
-          </folding>
+        <state relative-caret-position="1425">
+          <caret line="95" column="1" lean-forward="false" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -450,22 +477,6 @@
             <marker date="1509840630000" expanded="true" signature="1875:1929" ph="DELETE FROM " />
             <marker date="1509840630000" expanded="true" signature="2238:2280" ph="DELETE FROM " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../capstone-frontend/factories/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/views/userScreen.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -487,63 +498,199 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DeleteAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
+        <state relative-caret-position="1425">
           <caret line="95" column="1" lean-forward="false" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UserAddedStation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpdateStation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
           <folding>
-            <marker date="1516174049000" expanded="true" signature="1278:1390" ph="SELECT user_... " />
-            <marker date="1516174049000" expanded="true" signature="1825:1879" ph="DELETE FROM " />
-            <marker date="1516174049000" expanded="true" signature="2048:2098" ph="UPDATE users... " />
+            <marker date="1516482561000" expanded="true" signature="1663:1929" ph="UPDATE stati... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/changePassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="808">
+          <caret line="74" column="44" lean-forward="false" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="44" />
+          <folding>
+            <marker date="1516482856000" expanded="true" signature="1126:1187" ph="SELECT * FRO... token" />
+            <marker date="1516482856000" expanded="true" signature="1611:1686" ph="UPDATE users... " />
+            <marker date="1516482856000" expanded="true" signature="1760:1809" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/controllers/resetPasswordController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="50" lean-forward="false" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/controllers/ForgotPasswordController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/views/resetPassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/views/ForgotPassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="82" lean-forward="false" selection-start-line="4" selection-start-column="82" selection-end-line="4" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeleteAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="80" column="29" lean-forward="false" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+          <folding>
+            <marker date="1516484403000" expanded="true" signature="1278:1390" ph="SELECT user_... " />
+            <marker date="1516484403000" expanded="true" signature="1825:1879" ph="DELETE FROM " />
+            <marker date="1516484403000" expanded="true" signature="2047:2097" ph="UPDATE users... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/factories/api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+        <state relative-caret-position="452">
+          <caret line="114" column="20" lean-forward="false" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MakeAdmin.php">
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/controllers/UserController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="88" column="15" lean-forward="false" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="15" />
+        <state relative-caret-position="420">
+          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/views/userScreen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="78" lean-forward="false" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeleteStationForever.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1516174244000" expanded="true" signature="1308:1420" ph="SELECT user_... " />
-            <marker date="1516174244000" expanded="true" signature="1878:1932" ph="DELETE FROM " />
-            <marker date="1516174244000" expanded="true" signature="2123:2173" ph="UPDATE users... " />
+            <marker date="1509251253000" expanded="true" signature="1193:1232" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ResetPassword.php">
+    <entry file="file://$PROJECT_DIR$/GetAllDeletedStations.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-225">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="-230">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetAllApplicationData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1516174539000" expanded="true" signature="1134:1183" ph="SELECT id FR... users_table" />
-            <marker date="1516174539000" expanded="true" signature="1439:1487" ph="DELETE FROM " />
-            <marker date="1516174539000" expanded="true" signature="1570:1698" ph="INSERT INTO token" />
+            <marker date="1508454664000" expanded="true" signature="1079:1118" ph="SELECT * FRO... stations" />
+            <marker date="1508454664000" expanded="true" signature="1348:1419" ph="SELECT DISTI... stations" />
+            <marker date="1508454664000" expanded="true" signature="1700:1769" ph="SELECT DISTI... stations" />
+            <marker date="1508454664000" expanded="true" signature="2029:2100" ph="SELECT DISTI... stations" />
+            <marker date="1508454664000" expanded="true" signature="2375:2464" ph="SELECT DISTI... popular" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UserAddedStation.php">
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/controllers/404Controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="90" column="63" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="90" selection-end-column="63" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/controllers/pendingStationsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1516174847000" expanded="true" signature="1847:2103" ph="INSERT INTO stations... " />
-            <marker date="1516174847000" expanded="true" signature="2160:2265" ph="SELECT * FRO... stations" />
-            <marker date="1516174847000" expanded="true" signature="2574:2616" ph="SELECT * FRO... users_table" />
+            <marker date="1509254145000" expanded="true" signature="1054:1146" ph="SELECT id FR... users_table" />
+            <marker date="1509254145000" expanded="true" signature="1309:1354" ph="SELECT * FRO... session" />
+            <marker date="1509254145000" expanded="true" signature="1948:1994" ph="DELETE FROM " />
+            <marker date="1509254145000" expanded="true" signature="2111:2183" ph="INSERT INTO `session`... " />
+            <marker date="1509254145000" expanded="true" signature="2302:2347" ph="SELECT * FRO... session" />
+            <marker date="1509254145000" expanded="true" signature="3054:3126" ph="INSERT INTO `session`... " />
+            <marker date="1509254145000" expanded="true" signature="3239:3284" ph="SELECT * FRO... session" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SessionCheck.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1509841675000" expanded="true" signature="1068:1177" ph="SELECT user_... " />
+            <marker date="1509841675000" expanded="true" signature="1622:1676" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UserInformation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="385">
           <caret line="40" column="23" lean-forward="false" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
           <folding>
             <marker date="1509511587000" expanded="true" signature="1019:1070" ph="SElECT email... users_table" />
@@ -551,22 +698,256 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../capstone-frontend-joint/controllers/UserController.js">
+    <entry file="file://$PROJECT_DIR$/ActivateStation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="67" lean-forward="false" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="67" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1508546565000" expanded="true" signature="1193:1253" ph="UPDATE stati... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1509506146000" expanded="true" signature="999:1052" ph="SELECT * FRO... token" />
+            <marker date="1509506146000" expanded="true" signature="1513:1562" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createUsers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1509840264000" expanded="true" signature="1367:1479" ph="SELECT user_... " />
+            <marker date="1509840264000" expanded="true" signature="1937:1991" ph="DELETE FROM " />
+            <marker date="1509840264000" expanded="true" signature="2185:2267" ph="INSERT INTO users_table... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EditSingleStation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1509840266000" expanded="true" signature="2162:2467" ph="UPDATE stati... " />
+            <marker date="1509840266000" expanded="true" signature="2584:2623" ph="SELECT * FRO... stations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetInformation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1509250176000" expanded="true" signature="1078:1120" ph="SELECT type stations" />
+            <marker date="1509250176000" expanded="true" signature="1166:1209" ph="SELECT genre... stations" />
+            <marker date="1509250176000" expanded="true" signature="1256:1299" ph="SELECT state... stations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetPendingInformation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding>
+            <marker date="1509640900000" expanded="true" signature="1078:1136" ph="SELECT type stations" />
+            <marker date="1509640900000" expanded="true" signature="1182:1241" ph="SELECT genre... stations" />
+            <marker date="1509640900000" expanded="true" signature="1288:1347" ph="SELECT state... stations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MakeAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="724">
+          <caret line="86" column="78" lean-forward="false" selection-start-line="86" selection-start-column="78" selection-end-line="86" selection-end-column="78" />
+          <folding>
+            <marker date="1516484403000" expanded="true" signature="1308:1420" ph="SELECT user_... " />
+            <marker date="1516484403000" expanded="true" signature="1878:1932" ph="DELETE FROM " />
+            <marker date="1516484403000" expanded="true" signature="2123:2173" ph="UPDATE users... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/controllers/submitStationController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/controllers/activeStationsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="206" column="22" lean-forward="false" selection-start-line="206" selection-start-column="12" selection-end-line="206" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/views/activeStations.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="139" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/views/deletedStations.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="139" lean-forward="false" selection-start-line="15" selection-start-column="139" selection-end-line="15" selection-end-column="139" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#8;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/views/pendingStations.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="139" lean-forward="false" selection-start-line="15" selection-start-column="139" selection-end-line="15" selection-end-column="139" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetUEPendingStations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+          <folding>
+            <marker date="1509689737000" expanded="true" signature="1078:1154" ph="SELECT * FRO... stations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetDeletedInformation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+          <folding>
+            <marker date="1509642017000" expanded="true" signature="1078:1121" ph="SELECT type stations" />
+            <marker date="1509642017000" expanded="true" signature="1167:1211" ph="SELECT genre... stations" />
+            <marker date="1509642017000" expanded="true" signature="1258:1302" ph="SELECT state... stations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetAllPopular.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1507958928000" expanded="true" signature="1079:1212" ph="SELECT p.vot... popular" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResetPassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <marker date="1516484203000" expanded="true" signature="1134:1190" ph="SELECT id FR... users_table" />
+            <marker date="1516484203000" expanded="true" signature="1448:1496" ph="DELETE FROM " />
+            <marker date="1516484203000" expanded="true" signature="1574:1702" ph="INSERT INTO token" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/controllers/deletedStationsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="178" column="40" lean-forward="false" selection-start-line="178" selection-start-column="19" selection-end-line="178" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/views/submit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="47" column="22" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AddStation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="94" column="29" lean-forward="false" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
+        <state relative-caret-position="195">
+          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
           <folding>
             <marker date="1516175584000" expanded="true" signature="1949:2219" ph="INSERT INTO stations... " />
             <marker date="1516175584000" expanded="true" signature="2276:2381" ph="SELECT * FRO... stations" />
             <marker date="1516175584000" expanded="true" signature="2728:2770" ph="SELECT * FRO... users_table" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/views/report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SubmitResetPassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="39" lean-forward="false" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="39" />
+          <folding>
+            <marker date="1516482856000" expanded="true" signature="1191:1253" ph="SELECT users... token" />
+            <marker date="1516482856000" expanded="true" signature="1583:1631" ph="DELETE FROM " />
+            <marker date="1516482856000" expanded="true" signature="1708:1817" ph="INSERT INTO `token`... " />
+            <marker date="1516482856000" expanded="true" signature="1891:1952" ph="SELECT token... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/controllers/reportController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../capstone-frontend/factories/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="61" column="42" lean-forward="false" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetAllStations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="96" column="65" lean-forward="true" selection-start-line="95" selection-start-column="8" selection-end-line="96" selection-end-column="65" />
+          <folding>
+            <marker date="1509429517000" expanded="true" signature="1187:1226" ph="SELECT * FRO... stations" />
+            <marker date="1509429517000" expanded="true" signature="1272:1348" ph="SELECT * FRO... stations" />
+            <marker date="1509429517000" expanded="true" signature="1395:1435" ph="SELECT * FRO... stations" />
+            <marker date="1509429517000" expanded="true" signature="1482:1558" ph="SELECT * FRO... stations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReportStation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="730">
+          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding>
+            <marker date="1516492835000" expanded="true" signature="1469:1511" ph="SELECT * FRO... users_table" />
           </folding>
         </state>
       </provider>

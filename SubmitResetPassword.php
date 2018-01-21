@@ -51,9 +51,7 @@
 				$id =  $row['id'];
 		}
 
-    // $id = 8;
-
-    $token = openssl_random_pseudo_bytes(64);
+		$token = openssl_random_pseudo_bytes(64);
     //Convert the binary data into hexadecimal representation.
     $token = bin2hex($token);
 
@@ -69,16 +67,14 @@
     while($rowToken = $returnTokenQuery->fetch_assoc()) {
         $token =  $rowToken;
     }
-    // $token = "asdasdfadsadfsdfasdfsagjioqejngeriuhpgrepiuhgerpnuiegrijnergijnpergwnipuegr";
 
-    $message = "http://localhost:8888/capstone-frontend-joint/#/resetpassword/";
+    $message = "http://willshare.com/cs495/admin/frontend/#/resetpassword/";
 
     $fullMessage = $message . $token;
 
     // In case any of our lines are larger than 70 characters, we should use wordwrap()
     $message = wordwrap($fullMessage, 70, "\r\n");
 
-    // Send
     mail('swwinslow@gmail.com', 'My Subject', $message);
 
 

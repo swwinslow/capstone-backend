@@ -42,23 +42,22 @@
 	$short_name = mysql_escape_string($_POST['short_name']);
 	$long_name = mysql_escape_string($_POST['long_name']);
 	$frequency = mysql_escape_string($_POST['frequency']);
-  $city = mysql_escape_string($_POST['city']);
-  $state = mysql_escape_string($_POST['state']);
-  $slogan = mysql_escape_string($_POST['slogan']);
-  $type = mysql_escape_string($_POST['type']);
-  $genre = mysql_escape_string($_POST['genre']);
-  $stream = mysql_escape_string($_POST['stream']);
-  $id = mysql_escape_string($_POST['id']);
+    $city = mysql_escape_string($_POST['city']); $state = mysql_escape_string($_POST['state']);
+    $slogan = mysql_escape_string($_POST['slogan']);
+    $type = mysql_escape_string($_POST['type']);
+    $genre = mysql_escape_string($_POST['genre']);
+    $stream = mysql_escape_string($_POST['stream']);
+    $id = mysql_escape_string($_POST['id']);
 
-  $sqlEnter = "UPDATE stations SET frequency = '$frequency', long_name = '$long_name', short_name = '$short_name', city = '$city', state = '$state', slogan = '$slogan', active = '$active', deleted = '$deleted', type = '$type', genre = '$genre', stream = '$stream') WHERE id = '$id'
+  $sqlEnter = "UPDATE stations SET frequency = '$frequency', long_name = '$long_name', short_name = '$short_name', city = '$city', state = '$state', slogan = '$slogan', active = '$active', deleted = '$deleted', type = '$type', genre = '$genre', stream = '$stream') WHERE id = '$id'";
 
 	//executes the SQL above, sends error if there is an error
 	if ($conn->query($sqlEnter) === TRUE) {
 	    http_response_code(200);
-		$response = array("error"=>"New station has been added","status"=>200);
+		$response = array("error"=>"Station has been Updated","status"=>200);
 	} else {
 	    http_response_code(200);
-		$response = array("error"=>"Add Station Failed","status"=>403);
+		$response = array("error"=>"Update Station Failed","status"=>403);
 	}
 	echo json_encode($response);
 ?>

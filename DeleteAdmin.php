@@ -76,24 +76,23 @@ if ($result->num_rows > 0){
         $response = array("auth"=> "Failed", "status"=>200);
 
     } else {
-
         $sqlEnter = "UPDATE users_table SET winner = 0 WHERE id = '$id'";
 
         //executes the SQL above, sends error if there is an error
         if ($conn->query($sqlEnter) === TRUE) {
             http_response_code(200);
-            $response = array("error"=>"Admin has been Updated","status"=>200);
+            $response = array("error"=>"Admin has been update","status"=>200);
         } else {
             http_response_code(200);
-            $response = array("error"=>"Admin has failed to update","status"=>403);
+            $response = array("error"=>"Admin could not be updated","status"=>403);
         }
     }
-
 } else {
     // there is no session created
     http_response_code(403);
     $response = array("auth"=> "Failed", "status"=>403);
 }
+
 
 echo json_encode($response);
 ?>

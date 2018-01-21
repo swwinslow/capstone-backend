@@ -41,43 +41,39 @@
   $email = mysql_escape_string($_POST['email']);
 
 	//inserts the variables into a SQL query
-	$emailQuery = "SELECT id FROM users_table WHERE email = '$email'";
+	$emailQuery = "SELECT id, email FROM users_table WHERE email = '$email'";
 	$resultEmailQuery = $conn->query($emailQuery);
 
 	if (true){
 
 		while($row = $resultEmailQuery->fetch_assoc()) {
-				$id =  $row['id'];
-				$email =  $row['email'];
+
+            $id =  $row['id'];
+			$email =  $row['email'];
 		}
 
-    $token = bin2hex(openssl_random_pseudo_bytes(64));
-    //
-    $deleteTokens = "DELETE FROM `token` WHERE users_table_id = '$id'";
-    $deleteTokensQuery = $conn->query($deleteTokens);
-    //
-    $tokenQuery = "INSERT INTO  `token` (  `id` ,  `users_table_id` ,  `timestamp` ,  `token_string` ) VALUES ( NULL ,  '$id', NOW( ) ,  '$token' );";
-  	$resultTokenQuery = $conn->query($tokenQuery);
+		$token = bin2hex(openssl_random_pseudo_bytes(64));
+		//
+		$deleteTokens = "DELETE FROM `token` WHERE users_table_id = '$id'";
+		$deleteTokensQuery = $conn->query($deleteTokens);
+		//
 
-    $message = "Here is the link you requsted. \r\r\r If this is a unknown, please ignore. \r\r http://localhost:8888/capstone-frontend-joint/#/resetpassword/". $token;
+		$tokenQuery = "INSERT INTO  `token` (  `id` ,  `users_table_id` ,  `timestamp` ,  `token_string` ) VALUES ( NULL ,  '$id', NOW( ) ,  '$token' );";
 
-		// $newMessage = $message . "\r\n If you do not recongize this, please ignore.";
-    //
-    // // In case any of our lines are larger than 70 characters, we should use wordwrap()
-    // $fullEmailMessage = wordwrap($newMessage, 70, "\r\n");
-    //
-    // // Send
-    mail("swwinslow@gmail.com", 'Reset Password', $message);
+		$resultTokenQuery = $conn->query($tokenQuery);
 
+		$message = "Here is the link you requsted. \r\r\r If this is a unknown, please ignore. \r\r http://willshare.com/cs495/admin/frontend/#/resetpassword/". $token;
 
-  $response = array('status'=>200);
-  $response = array("error"=>"False","Email"=>"Sent", "token"=> "token", "status"=>200);
+		mail($email, 'Reset Password', $message);
+
+		$response = array('status'=>200);
+		$response = array("error"=>"False","Email"=>"sent", "id"=> $id, "status"=>200);
 
 	} else {
 		http_response_code(403);
-		$response = array("error"=>"No Stations", "status"=>403);
+		$response = array("error"=>"Could not complete request", "status"=>403);
 	}
 
 	echo json_encode($response);
 
-	?>
+?>
