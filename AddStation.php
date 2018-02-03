@@ -53,54 +53,81 @@
 	$type = mysql_escape_string($_POST['type']);
 	$genre = mysql_escape_string($_POST['genre']);
 	$stream = mysql_escape_string($_POST['stream']);
-	$active = mysql_escape_string($_POST['active']);
+    $website = mysql_escape_string($_POST['website']);
+    $active = mysql_escape_string($_POST['active']);
 	$user_entered = mysql_escape_string($_POST['user_entered']);
 
 	//todo check to see if the slogan has quotes around it.
 
-	$sqlEnter = "INSERT INTO stations (frequency, long_name, short_name, city, state, slogan, active, deleted, type, genre, stream, user_entered) VALUES ('$frequency', '$long_name', '$short_name', '$city', '$state', '$slogan', '$active', 0, '$type', '$genre', '$stream', '$user_entered')";
-
-	if ($conn->query($sqlEnter) === TRUE) {
-
-		$sql2 = "SELECT * FROM stations WHERE long_name = '$long_name' AND short_name = '$short_name' AND stream='$stream'";
-		$result = $conn->query($sql2);
-
-		//todo look into the larger ids of the two if they are the same...
-
-		if ($result->num_rows > 0){
-			$stations = array();
-			$count = 0;
-			while($row = $result->fetch_assoc()) {
-
-				$station = $row;
-				array_push($stations, $station);
-			}
-		}
-		if($user_entered == 0) {
-
-            $getAdminUsersSQL = "SELECT * FROM users_table WHERE winner = 1";
-            $adminUsers = $ADMINconn->query($getAdminUsersSQL);
+$session_id = mysql_escape_string($_POST['session_id']);
+$session_key = mysql_escape_string($_POST['session_key']);
 
 
+$sqlEnter = "SELECT user_id, timestamp
+	FROM  `session`
+	WHERE session_id =  '$session_id'
+	AND session_key =  '$session_key'";
 
-            $message = "A new station has been added by a user: 'http://willshare.com/cs495/admin/frontend/#/'";
+$result = $ADMINconn->query($sqlEnter);
 
-            //
-            // // In case any of our lines are larger than 70 characters, we should use wordwrap()
-            $message123 = wordwrap($message, 70, "\r\n");
-            //
-            // Making admins get this message
-            while($rowUser = $adminUsers->fetch_assoc()) {
+if ($result->num_rows > 0) {
 
-                mail($rowUser['email'], 'A New Station has been added', $message123);
+    while ($row = $result->fetch_assoc()) {
+        $user = $row['user_id'];
+        $timestamp = $row['timestamp'];
+    }
+
+    $timstampUNIX = strtotime($timestamp);
+    $currentStamp = time();
+
+    $difference = $currentStamp - $timstampUNIX;
+
+    $timeLength = 2 * 24 * 60 * 60;
+
+    if ($timeLength < $difference) {
+
+        //deleting the session
+        $deleteSQL = "DELETE FROM `session` WHERE session_id = '$session_id'";
+
+        //creating the new session
+        http_response_code(200);
+        $response = array("auth" => "Failed", "status" => 200);
+
+    } else {
+
+        $sqlEnter = "INSERT INTO stations (frequency, long_name, short_name, city, state, slogan, active, deleted, type, genre, stream, website ,user_entered) VALUES ('$frequency', '$long_name', '$short_name', '$city', '$state', '$slogan', '$active', 0, '$type', '$genre', '$stream', '$website' ,'$user_entered')";
+
+        if ($conn->query($sqlEnter) === TRUE) {
+
+            $sql2 = "SELECT * FROM stations WHERE long_name = '$long_name' AND short_name = '$short_name' AND stream='$stream'";
+            $result = $conn->query($sql2);
+
+            //todo look into the larger ids of the two if they are the same...
+
+            if ($result->num_rows > 0) {
+                $stations = array();
+                $count = 0;
+                while ($row = $result->fetch_assoc()) {
+
+                    $station = $row;
+                    array_push($stations, $station);
+                }
             }
+
+            http_response_code(200);
+            $response = array("status" => "Station has been added", "stations" => $stations, "code" => 200);
+        } else {
+            http_response_code(200);
+            $response = array("error" => "Added Station has failed", "status" => 403);
         }
-	    http_response_code(200);
-		$response = array("status"=>"Station has been added", "stations" => $stations, "code"=>200);
-	} else {
-	    http_response_code(200);
-		$response = array("error"=>"Added Station has failed","status"=>403);
-	}
-	echo json_encode($response);
+    }
+} else {
+    http_response_code(200);
+    $response = array("error" => "No user found", "status" => 403);
+}
+
+
+    echo json_encode($response);
+
 
 ?>

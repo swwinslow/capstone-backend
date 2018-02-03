@@ -28,6 +28,13 @@
   $password = "B5C8zUw9a1H";
   $dbname = "midwest_radio";
 
+	$usernameADMIN = "csstudent";
+	$passwordADMIN = "DrLinRules";
+	$dbnameADMIN = "cs495_admin";
+
+// Create connection
+   $ADMINconn = new mysqli($servername, $usernameADMIN, $passwordADMIN, $dbnameADMIN);
+
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -56,32 +63,75 @@
   $type = mysql_escape_string($_POST['type']);
   $genre = mysql_escape_string($_POST['genre']);
   $stream = mysql_escape_string($_POST['stream']);
-  $activeStatus = mysql_escape_string($_POST['active']);
+$website = mysql_escape_string($_POST['website']);
+
+$activeStatus = mysql_escape_string($_POST['active']);
 	$deletedStatus = mysql_escape_string($_POST['delete']);
 	$user_entered = mysql_escape_string($_POST['user_entered']);
 
-  $sqlEnter = "UPDATE stations SET frequency = '$frequency', long_name = '$long_name', short_name = '$short_name', city = '$city', state = '$state', slogan = '$slogan', active = $activeStatus, deleted = $deletedStatus, type = '$type', genre = '$genre', stream = '$stream', user_entered = '$user_entered' WHERE id = '$id'";
+$session_id = mysql_escape_string($_POST['session_id']);
+$session_key = mysql_escape_string($_POST['session_key']);
 
-	//executes the SQL above, sends error if there is an error
-	if ($conn->query($sqlEnter) === TRUE) {
 
-		$sql2 = "SELECT * FROM stations WHERE id = '$id'";
-		$result = $conn->query($sql2);
+$sqlEnter = "SELECT user_id, timestamp
+	FROM  `session`
+	WHERE session_id =  '$session_id'
+	AND session_key =  '$session_key'";
 
-		if ($result->num_rows > 0){
-			$stations = array();
-			$count = 0;
-			while($row = $result->fetch_assoc()) {
+$result = $ADMINconn->query($sqlEnter);
 
-				$station = $row;
-				array_push($stations, $station);
-			}
-		}
-	    http_response_code(200);
-		$response = array("status"=>"Station has been editied", "stations" => $stations, "code"=>200);
-	} else {
-	    http_response_code(200);
-		$response = array("error"=>"Edit Station has final Failed","status"=>403);
-	}
+if ($result->num_rows > 0) {
+
+    while ($row = $result->fetch_assoc()) {
+        $user = $row['user_id'];
+        $timestamp = $row['timestamp'];
+    }
+
+    $timstampUNIX = strtotime($timestamp);
+    $currentStamp = time();
+
+    $difference = $currentStamp - $timstampUNIX;
+
+    $timeLength = 2 * 24 * 60 * 60;
+
+    if ($timeLength < $difference) {
+
+        //deleting the session
+        $deleteSQL = "DELETE FROM `session` WHERE session_id = '$session_id'";
+
+        //creating the new session
+        http_response_code(200);
+        $response = array("auth" => "Failed", "status" => 200);
+
+    } else {
+
+        $sqlEnter = "UPDATE stations SET frequency = '$frequency', long_name = '$long_name', short_name = '$short_name', city = '$city', state = '$state', slogan = '$slogan', active = $activeStatus, deleted = $deletedStatus, type = '$type', genre = '$genre', stream = '$stream', website = '$website', user_entered = '$user_entered' WHERE id = '$id'";
+
+        //executes the SQL above, sends error if there is an error
+        if ($conn->query($sqlEnter) === TRUE) {
+
+            $sql2 = "SELECT * FROM stations WHERE id = '$id'";
+            $result = $conn->query($sql2);
+
+            if ($result->num_rows > 0) {
+                $stations = array();
+                $count = 0;
+                while ($row = $result->fetch_assoc()) {
+
+                    $station = $row;
+                    array_push($stations, $station);
+                }
+            }
+            http_response_code(200);
+            $response = array("status" => "Station has been editied", "stations" => $stations, "code" => 200);
+        } else {
+            http_response_code(200);
+            $response = array("error" => "Edit Station has final Failed", "status" => 403);
+        }
+    }
+} else {
+    http_response_code(200);
+    $response = array("error" => "Edit Station has final Failed", "status" => 403);
+}
 	echo json_encode($response);
 ?>

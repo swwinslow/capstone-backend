@@ -38,7 +38,7 @@
 	//assigns the posted values to variables
 	$inputJSON = file_get_contents('php://input');
 	$input = json_decode( $inputJSON, TRUE ); //convert JSON into array
-  $id = mysql_escape_string($_POST['user_id']);
+	$id = mysql_escape_string($_POST['user_id']);
 
 	$session_id = mysql_escape_string($_POST['session_id']);
 	$session_key = mysql_escape_string($_POST['session_key']);
@@ -50,7 +50,6 @@
 	AND session_key =  '$session_key'";
 
 	$result = $conn->query($sqlEnter);
-
 
 	if ($result->num_rows > 0){
 

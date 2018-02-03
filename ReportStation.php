@@ -58,7 +58,6 @@ $comment = mysql_escape_string($_POST['comment']);
 
         $details = "Station: ". $long_name . "  | How: " . $broken . " | Comment:" . $comment;
 
-//$details = "asdf";
 
 
 //        $message = "A user has reported a station. Visit'http://willshare.com/cs495/admin/frontend/#/'". $details;
