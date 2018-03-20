@@ -50,15 +50,16 @@ $frequency = mysql_escape_string($_POST['frequency']);
 $city = mysql_escape_string($_POST['city']);
 $state = mysql_escape_string($_POST['state']);
 $slogan = mysql_escape_string($_POST['slogan']);
-$type = mysql_escape_string($_POST['type']);
-$genre = mysql_escape_string($_POST['genre']);
+$type = "N/A";
+$genre = "N/A";
+$website = "N/A";
 $stream = mysql_escape_string($_POST['stream']);
 $active = mysql_escape_string($_POST['active']);
 $user_entered = 1;
 
 //todo check to see if the slogan has quotes around it.
 
-$sqlEnter = "INSERT INTO stations (frequency, long_name, short_name, city, state, slogan, active, deleted, type, genre, stream, user_entered) VALUES ('$frequency', '$long_name', '$short_name', '$city', '$state', '$slogan', '$active', 0, '$type', '$genre', '$stream', '$user_entered')";
+$sqlEnter = "INSERT INTO stations (frequency, long_name, short_name, city, state, slogan, active, deleted, type, genre, stream, user_entered, website) VALUES ('$frequency', '$long_name', '$short_name', '$city', '$state', '$slogan', '$active', 0, '$type', '$genre', '$stream', '$user_entered', '$website')";
 
 if ($conn->query($sqlEnter) === TRUE) {
 
