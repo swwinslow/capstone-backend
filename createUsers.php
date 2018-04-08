@@ -38,9 +38,9 @@
 	//assigns the posted values to variables
 	$inputJSON = file_get_contents('php://input');
 	$input = json_decode( $inputJSON, TRUE ); //convert JSON into array
-  $email = mysql_escape_string($_POST['email']);
+  	$email = mysql_escape_string($_POST['email']);
 
-  $hashedPassword =  hash('sha512', $_POST['password']);
+  	$hashedPassword =  hash('sha512', $_POST['password']);
 
 	$session_id = mysql_escape_string($_POST['session_id']);
 	$session_key = mysql_escape_string($_POST['session_key']);
@@ -53,8 +53,10 @@
 
 	$result = $conn->query($sqlEnter);
 
-
-	if ($result->num_rows > 0){
+	if(!isset($_POST['password']) || !isset($_POST['email'])){
+        http_response_code(403);
+        $response = array("auth"=> "Failed. Parameters not there", "status"=>403);
+	} else if ($result->num_rows > 0){
 
 	    while($row = $result->fetch_assoc()) {
 	      $user = $row['user_id'];
@@ -84,10 +86,10 @@
 							//executes the SQL above, sends error if there is an error
 							if ($conn->query($sqlEnter) === TRUE) {
 									http_response_code(200);
-								$response = array("error"=>"New station has been added","status"=>200);
+								$response = array("error"=>"New user has been added","status"=>200);
 							} else {
 									http_response_code(200);
-									$response = array("error"=>"Add Station Failed","status"=>403);
+									$response = array("error"=>"New User Failed","status"=>403);
 							}
 	          }
 

@@ -52,7 +52,10 @@
 	$result = $conn->query($sqlEnter);
 
 
-	if ($result->num_rows > 0){
+	if(!$_POST['id']){
+		http_response_code(403);
+		$response = array("auth"=> "Failed. Parameters not there", "status"=>403);
+	} else if ($result->num_rows > 0){
 
 	    while($row = $result->fetch_assoc()) {
 	      $user = $row['user_id'];
@@ -83,7 +86,7 @@
 							//executes the SQL above, sends error if there is an error
 							if ($conn->query($sqlEnter) === TRUE) {
 									http_response_code(200);
-								$response = array("error"=>"New station has been added","status"=>200);
+								$response = array("error"=>"User has been deleted","status"=>200);
 							} else {
 									http_response_code(200);
 									$response = array("error"=>"Add Station Failed","status"=>403);

@@ -45,50 +45,50 @@ if ($conn->connect_error) {
 $inputJSON = file_get_contents('php://input');
 $input = json_decode( $inputJSON, TRUE ); //convert JSON into array
 
-$station_id = mysql_escape_string($_POST['station_id']);
-
-$stationQuery = "SELECT * FROM stations WHERE id = '$station_id'";
-$stationsQueryResults = $conn->query($stationQuery);
-
-while($row = $stationsQueryResults->fetch_assoc()) {
-    $confirmed_station_id =  $row['id'];
-}
-
-if(is_numeric($confirmed_station_id)){
-    $voteQuery = "SELECT * FROM popular WHERE stations_id = '$confirmed_station_id'";
-    $voteQueryResult = $conn->query($voteQuery);
-
-    while($row = $voteQueryResult->fetch_assoc()) {
-        $votes =  $row['votes'];
-    }
-
-    if(is_numeric($votes)){
-        //update value
-        $newVotes = $votes + 1;
-
-        $voteQuery = "UPDATE `popular` SET `votes` = '$newVotes' WHERE stations_id = '$confirmed_station_id'";
-        $voteQueryResult = $conn->query($voteQuery);
-        http_response_code(200);
-        $response = array("error"=>"none", "status"=>200);
-    } else {
-
-        $voteQuery = "INSERT INTO `popular`(`stations_id`, `votes`) VALUES ('$confirmed_station_id', 1)";
-        $voteQueryResult = $conn->query($voteQuery);
-        http_response_code(200);
-        $response = array("error"=>"none", "status"=>200);
-    }
-
+if( !isset($_POST['station_id']) ) {
+    http_response_code(400);
+    $response = array("error"=>"no station in network request", "status"=>400);
 } else {
-    http_response_code(200);
-    $response = array("error"=>"no station", "status"=>200);
+    $station_id = mysql_escape_string($_POST['station_id']);
+
+
+    $stationQuery = "SELECT * FROM stations WHERE id = '$station_id'";
+    $stationsQueryResults = $conn->query($stationQuery);
+
+    while ($row = $stationsQueryResults->fetch_assoc()) {
+        $confirmed_station_id = $row['id'];
+    }
+
+    if (is_numeric($confirmed_station_id)) {
+        $voteQuery = "SELECT * FROM popular WHERE stations_id = '$confirmed_station_id'";
+        $voteQueryResult = $conn->query($voteQuery);
+
+        while ($row = $voteQueryResult->fetch_assoc()) {
+            $votes = $row['votes'];
+        }
+
+        if (is_numeric($votes)) {
+            //update value
+            $newVotes = $votes + 1;
+
+            $voteQuery = "UPDATE `popular` SET `votes` = '$newVotes' WHERE stations_id = '$confirmed_station_id'";
+            $voteQueryResult = $conn->query($voteQuery);
+            http_response_code(200);
+            $response = array("error" => "n/a", "update" => "station updated", "status" => 200);
+        } else {
+
+            $voteQuery = "INSERT INTO `popular`(`stations_id`, `votes`) VALUES ('$confirmed_station_id', 1)";
+            $voteQueryResult = $conn->query($voteQuery);
+            http_response_code(200);
+            $response = array("error" => "n/a", "update" => "station updated", "status" => 200);
+        }
+
+    } else {
+        http_response_code(400);
+        $response = array("error" => "no station", "status" => 400);
+    }
+
+    echo json_encode($response);
 }
-$newVotes = $votes + 1;
-
-$addingNewVotes = "INSERT INTO popular(votes) VALUE '$newVotes'";
-//$newData = $conn->query($addingNewVotes);
-
-
-
-echo json_encode($response);
 
 ?>
