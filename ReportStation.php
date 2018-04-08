@@ -67,9 +67,16 @@ $comment = mysql_escape_string($_POST['comment']);
         $fullMessage = wordwrap($details, 70, "\r\n");
         //
         // Making admins get this message
+
+        $getAdminUsersSQL = "SELECT * FROM users_table WHERE winner = 1";
+        $adminUsers = $ADMINconn->query($getAdminUsersSQL);
+
+
+        // Making admins get this message
         while($rowUser = $adminUsers->fetch_assoc()) {
 
-            mail("swwinslow@gmail.com", 'A Station has been reported', $fullMessage);
+            mail($rowUser['email'], 'A Station has been reported', $fullMessage);
+
         }
 
         http_response_code(200);

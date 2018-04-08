@@ -53,7 +53,7 @@ $slogan = mysql_escape_string($_POST['slogan']);
 $type = "N/A";
 $genre = "N/A";
 $website = "N/A";
-$stream = mysql_escape_string($_POST['stream']);
+$stream = "N/A";
 $active = mysql_escape_string($_POST['active']);
 $user_entered = 1;
 
@@ -77,23 +77,17 @@ if ($conn->query($sqlEnter) === TRUE) {
             array_push($stations, $station);
         }
     }
-    if($user_entered == 0) {
+    if($user_entered == 1) {
 
         $getAdminUsersSQL = "SELECT * FROM users_table WHERE winner = 1";
         $adminUsers = $ADMINconn->query($getAdminUsersSQL);
 
+        $message = "A new station has been added by a user! It is waiting for approval";
 
-
-        $message = "A new station has been added by a user: 'http://willshare.com/cs495/admin/frontend/#/'";
-
-        //
-        // // In case any of our lines are larger than 70 characters, we should use wordwrap()
-        $message123 = wordwrap($message, 70, "\r\n");
-        //
         // Making admins get this message
         while($rowUser = $adminUsers->fetch_assoc()) {
 
-            mail($rowUser['email'], 'A New Station has been added', $message123);
+            mail($rowUser['email'], 'A New Station has been added... in method', $message);
         }
     }
     http_response_code(200);
