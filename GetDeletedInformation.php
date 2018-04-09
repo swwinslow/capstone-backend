@@ -15,10 +15,14 @@
 	    }
 	}
 
-	$servername = "willshar.ipowermysql.com";
-	$username = "admin_user";
-	$password = "B5C8zUw9a1H";
-	$dbname = "midwest_radio";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
+
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -39,14 +43,14 @@
 	$input = $_GET;
 
 	//inserts the variables into a SQL query
-	$sql2 = "SELECT type FROM stations WHERE deleted = 1";
-	$result = $conn->query($sql2);
+$sql2 = "query for deleted type";
+$result = $conn->query($sql2);
 
-	$sql3 = "SELECT genre FROM stations WHERE deleted = 1";
-	$result3 = $conn->query($sql3);
+$sql3 = "query for deleted genre";
+$result3 = $conn->query($sql3);
 
-	$sql4 = "SELECT state FROM stations WHERE deleted = 1";
-	$result4 = $conn->query($sql4);
+$sql4 = "query for deleted state";
+$result4 = $conn->query($sql4);
 
 	if ($result->num_rows > 0){
 		$typeArray = array();

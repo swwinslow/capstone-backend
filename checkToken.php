@@ -16,10 +16,14 @@ if (!function_exists('http_response_code'))
     }
 }
 
-$servername = "willshar.ipowermysql.com";
-$username = "csstudent";
-$password = "DrLinRules";
-$dbname = "cs495_admin";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
+
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -36,12 +40,9 @@ if ($conn->connect_error) {
   exit;
 }
 
-$token = mysql_escape_string($_POST['token']);
+//database data
 
-
-$sqlEnter = "SELECT *
-FROM  `token`
-WHERE token_string =  '$token'";
+$sqlEnter = "query to get the token from what is given";
 
 $result = $conn->query($sqlEnter);
 
@@ -63,7 +64,7 @@ if ($result->num_rows > 0){
           if($timeLength > $difference){
 
             //deleting the session
-            $deleteSQL = "DELETE FROM `token` WHERE token_string = '$token'";
+            $deleteSQL = "delete the token'";
             $deleteSQLResult = $conn->query($deleteSQL);
 
             //creating the new session

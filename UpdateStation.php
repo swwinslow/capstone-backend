@@ -15,10 +15,14 @@
 	    }
 	}
 
-  $servername = "willshar.ipowermysql.com";
-  $username = "admin_user";
-  $password = "B5C8zUw9a1H";
-  $dbname = "midwest_radio";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
+
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -39,25 +43,14 @@
 	$inputJSON = file_get_contents('php://input');
 	$input = json_decode( $inputJSON, TRUE ); //convert JSON into array
 
-	$short_name = mysql_escape_string($_POST['short_name']);
-	$long_name = mysql_escape_string($_POST['long_name']);
-	$frequency = mysql_escape_string($_POST['frequency']);
-    $city = mysql_escape_string($_POST['city']); $state = mysql_escape_string($_POST['state']);
-    $slogan = mysql_escape_string($_POST['slogan']);
-    $type = mysql_escape_string($_POST['type']);
-    $genre = mysql_escape_string($_POST['genre']);
-    $stream = mysql_escape_string($_POST['stream']);
-    $id = mysql_escape_string($_POST['id']);
+    //insert the database station data like below
+	$variable = mysql_escape_string($_POST['varible']);
 
 
-$session_id = mysql_escape_string($_POST['session_id']);
-$session_key = mysql_escape_string($_POST['session_key']);
+    //collect the session data
 
 
-$sqlEnter = "SELECT user_id, timestamp
-	FROM  `session`
-	WHERE session_id =  '$session_id'
-	AND session_key =  '$session_key'";
+$sqlEnter = "check sesion query";
 
 $result = $ADMINconn->query($sqlEnter);
 
@@ -78,7 +71,7 @@ if ($result->num_rows > 0) {
     if ($timeLength < $difference) {
 
         //deleting the session
-        $deleteSQL = "DELETE FROM `session` WHERE session_id = '$session_id'";
+        $deleteSQL = "deleting the session data";
 
         //creating the new session
         http_response_code(200);
@@ -86,7 +79,7 @@ if ($result->num_rows > 0) {
 
     } else {
 
-        $sqlEnter = "UPDATE stations SET frequency = '$frequency', long_name = '$long_name', short_name = '$short_name', city = '$city', state = '$state', slogan = '$slogan', active = '$active', deleted = '$deleted', type = '$type', genre = '$genre', stream = '$stream') WHERE id = '$id'";
+        $sqlEnter = "UPDATE query for with all the station data ";
 
         //executes the SQL above, sends error if there is an error
         if ($conn->query($sqlEnter) === TRUE) {

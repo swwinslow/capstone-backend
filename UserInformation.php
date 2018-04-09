@@ -15,10 +15,14 @@
 	    }
 	}
 
-  $servername = "willshar.ipowermysql.com";
-  $username = "csstudent";
-  $password = "DrLinRules";
-  $dbname = "cs495_admin";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
+
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -38,7 +42,7 @@
   //todo check the session key.....
 
 
-  $sqlEnter = "SElECT email, winner, id FROM users_table WHERE 1=1";
+  $sqlEnter = "SQL FOR FINDING THE current person that has control of the emails";
   $result = $conn->query($sqlEnter);
 
 	//executes the SQL above, sends error if there is an error

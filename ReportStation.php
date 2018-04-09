@@ -15,14 +15,14 @@ if (!function_exists('http_response_code'))
     }
 }
 
-$servername = "willshar.ipowermysql.com";
-$username = "admin_user";
-$password = "B5C8zUw9a1H";
-$dbname = "midwest_radio";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
 
-$usernameADMIN = "csstudent";
-$passwordADMIN = "DrLinRules";
-$dbnameADMIN = "cs495_admin";
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -44,17 +44,7 @@ if ($conn->connect_error) {
 $inputJSON = file_get_contents('php://input');
 $input = json_decode( $inputJSON, TRUE ); //convert JSON into array
 
-$long_name = mysql_escape_string($_POST['long_name']);
-$broken = mysql_escape_string($_POST['broken']);
-$comment = mysql_escape_string($_POST['comment']);
-
-
-
-
-        $getAdminUsersSQL = "SELECT * FROM users_table WHERE winner = 1";
-        $adminUsers = $ADMINconn->query($getAdminUsersSQL);
-
-
+//database data from the front end
 
         $details = "Station: ". $long_name . "  | How: " . $broken . " | Comment:" . $comment;
 
@@ -68,7 +58,7 @@ $comment = mysql_escape_string($_POST['comment']);
         //
         // Making admins get this message
 
-        $getAdminUsersSQL = "SELECT * FROM users_table WHERE winner = 1";
+$getAdminUsersSQL = "get the user table and find the email winner";
         $adminUsers = $ADMINconn->query($getAdminUsersSQL);
 
 

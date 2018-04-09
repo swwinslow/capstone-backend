@@ -15,14 +15,14 @@
 	    }
 	}
 
-	$servername = "willshar.ipowermysql.com";
-	$username = "admin_user";
-	$password = "B5C8zUw9a1H";
-	$dbname = "midwest_radio";
+    $servername = "";
+    $username = "";
+    $password = "";
+    $dbname = "";
 
-	$usernameADMIN = "csstudent";
-	$passwordADMIN = "DrLinRules";
-	$dbnameADMIN = "cs495_admin";
+	$usernameADMIN = "";
+	$passwordADMIN = "";
+	$dbnameADMIN = "";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -44,29 +44,11 @@
 	$inputJSON = file_get_contents('php://input');
 	$input = json_decode( $inputJSON, TRUE ); //convert JSON into array
 
-	$short_name = mysql_escape_string($_POST['short_name']);
-	$long_name = mysql_escape_string($_POST['long_name']);
-	$frequency = mysql_escape_string($_POST['frequency']);
-	$city = mysql_escape_string($_POST['city']);
-	$state = mysql_escape_string($_POST['state']);
-	$slogan = mysql_escape_string($_POST['slogan']);
-	$type = mysql_escape_string($_POST['type']);
-	$genre = mysql_escape_string($_POST['genre']);
-	$stream = mysql_escape_string($_POST['stream']);
-    $website = mysql_escape_string($_POST['website']);
-    $active = mysql_escape_string($_POST['active']);
-	$user_entered = mysql_escape_string($_POST['user_entered']);
-
-	//todo check to see if the slogan has quotes around it.
-
-$session_id = mysql_escape_string($_POST['session_id']);
-$session_key = mysql_escape_string($_POST['session_key']);
+    //station data and query
 
 
-$sqlEnter = "SELECT user_id, timestamp
-	FROM  `session`
-	WHERE session_id =  '$session_id'
-	AND session_key =  '$session_key'";
+
+$sqlEnter = "check session";
 
 $result = $ADMINconn->query($sqlEnter);
 
@@ -87,7 +69,7 @@ if ($result->num_rows > 0) {
     if ($timeLength < $difference) {
 
         //deleting the session
-        $deleteSQL = "DELETE FROM `session` WHERE session_id = '$session_id'";
+        $deleteSQL = "delet the session";
 
         //creating the new session
         http_response_code(200);
@@ -95,11 +77,11 @@ if ($result->num_rows > 0) {
 
     } else {
 
-        $sqlEnter = "INSERT INTO stations (frequency, long_name, short_name, city, state, slogan, active, deleted, type, genre, stream, website ,user_entered) VALUES ('$frequency', '$long_name', '$short_name', '$city', '$state', '$slogan', '$active', 0, '$type', '$genre', '$stream', '$website' ,'$user_entered')";
+        $sqlEnter = "insert the station with the new data";
 
         if ($conn->query($sqlEnter) === TRUE) {
 
-            $sql2 = "SELECT * FROM stations WHERE long_name = '$long_name' AND short_name = '$short_name' AND stream='$stream'";
+            $sql2 = "find the sttion that you just inserted";
             $result = $conn->query($sql2);
 
             //todo look into the larger ids of the two if they are the same...

@@ -15,10 +15,14 @@
 	    }
 	}
 
-  $servername = "willshar.ipowermysql.com";
-  $username = "csstudent";
-  $password = "DrLinRules";
-  $dbname = "cs495_admin";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
+
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -38,10 +42,9 @@
 	//assigns the posted values to variables
 	$input = $_GET;
 
-  $email = mysql_escape_string($_POST['email']);
-
+//databse data.. what do you need to collect for the password
 	//inserts the variables into a SQL query
-	$emailQuery = "SELECT id, email FROM users_table WHERE email = '$email'";
+	$emailQuery = "find user based off the data";
 	$resultEmailQuery = $conn->query($emailQuery);
 
 	if (true){
@@ -54,11 +57,11 @@
 
 		$token = bin2hex(openssl_random_pseudo_bytes(64));
 		//
-		$deleteTokens = "DELETE FROM `token` WHERE users_table_id = '$id'";
+		$deleteTokens = "delete any old token";
 		$deleteTokensQuery = $conn->query($deleteTokens);
 		//
 
-		$tokenQuery = "INSERT INTO  `token` (  `id` ,  `users_table_id` ,  `timestamp` ,  `token_string` ) VALUES ( NULL ,  '$id', NOW( ) ,  '$token' );";
+		$tokenQuery = "add the token to the databse";
 
 		$resultTokenQuery = $conn->query($tokenQuery);
 

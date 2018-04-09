@@ -16,10 +16,14 @@ if (!function_exists('http_response_code'))
     }
 }
 
-$servername = "willshar.ipowermysql.com";
-$username = "csstudent";
-$password = "DrLinRules";
-$dbname = "cs495_admin";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
+
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -36,14 +40,10 @@ if ($conn->connect_error) {
   exit;
 }
 
-$session_id = mysql_escape_string($_POST['session_id']);
-$session_key = mysql_escape_string($_POST['session_key']);
+//database data being pulled in
 
 
-$sqlEnter = "SELECT user_id, timestamp
-FROM  `session`
-WHERE session_id =  '$session_id'
-AND session_key =  '$session_key'";
+$sqlEnter = "check query";
 
 $result = $conn->query($sqlEnter);
 
@@ -65,7 +65,7 @@ if ($result->num_rows > 0){
           if($timeLength < $difference){
 
             //deleting the session
-            $deleteSQL = "DELETE FROM `session` WHERE session_id = '$session_id'";
+            $deleteSQL = "delete the session ";
 
             //creating the new session
               http_response_code(200);

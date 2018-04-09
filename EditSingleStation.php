@@ -23,14 +23,14 @@
     $_REQUEST = json_decode(stripslashes(json_encode($_REQUEST, JSON_HEX_APOS)), true);
 }
 
-  $servername = "willshar.ipowermysql.com";
-  $username = "admin_user";
-  $password = "B5C8zUw9a1H";
-  $dbname = "midwest_radio";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
 
-	$usernameADMIN = "csstudent";
-	$passwordADMIN = "DrLinRules";
-	$dbnameADMIN = "cs495_admin";
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 // Create connection
    $ADMINconn = new mysqli($servername, $usernameADMIN, $passwordADMIN, $dbnameADMIN);
@@ -54,29 +54,10 @@
 	$inputJSON = file_get_contents('php://input');
 	$input = json_decode( $inputJSON, TRUE ); //convert JSON into array
 
-	$short_name = mysql_escape_string($_POST['short_name']);
-	$long_name = mysql_escape_string($_POST['long_name']);
-	$frequency = mysql_escape_string($_POST['frequency']);
-  $city = mysql_escape_string($_POST['city']);
-  $state = mysql_escape_string($_POST['state']);
-  $slogan = mysql_escape_string($_POST['slogan']);
-  $type = mysql_escape_string($_POST['type']);
-  $genre = mysql_escape_string($_POST['genre']);
-  $stream = mysql_escape_string($_POST['stream']);
-$website = mysql_escape_string($_POST['website']);
-
-$activeStatus = mysql_escape_string($_POST['active']);
-	$deletedStatus = mysql_escape_string($_POST['delete']);
-	$user_entered = mysql_escape_string($_POST['user_entered']);
-
-$session_id = mysql_escape_string($_POST['session_id']);
-$session_key = mysql_escape_string($_POST['session_key']);
+//database data
 
 
-$sqlEnter = "SELECT user_id, timestamp
-	FROM  `session`
-	WHERE session_id =  '$session_id'
-	AND session_key =  '$session_key'";
+$sqlEnter = "query check";
 
 $result = $ADMINconn->query($sqlEnter);
 
@@ -97,7 +78,7 @@ if ($result->num_rows > 0) {
     if ($timeLength < $difference) {
 
         //deleting the session
-        $deleteSQL = "DELETE FROM `session` WHERE session_id = '$session_id'";
+        $deleteSQL = "delete the token";
 
         //creating the new session
         http_response_code(200);
@@ -105,12 +86,12 @@ if ($result->num_rows > 0) {
 
     } else {
 
-        $sqlEnter = "UPDATE stations SET frequency = '$frequency', long_name = '$long_name', short_name = '$short_name', city = '$city', state = '$state', slogan = '$slogan', active = $activeStatus, deleted = $deletedStatus, type = '$type', genre = '$genre', stream = '$stream', website = '$website', user_entered = '$user_entered' WHERE id = '$id'";
+        $sqlEnter = "update the station data with the current data in the database from the user";
 
         //executes the SQL above, sends error if there is an error
         if ($conn->query($sqlEnter) === TRUE) {
 
-            $sql2 = "SELECT * FROM stations WHERE id = '$id'";
+            $sql2 = "get all the stations";
             $result = $conn->query($sql2);
 
             if ($result->num_rows > 0) {

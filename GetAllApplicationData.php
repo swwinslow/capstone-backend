@@ -15,10 +15,14 @@ if (!function_exists('http_response_code'))
     }
 }
 
-$servername = "willshar.ipowermysql.com";
-$username = "admin_user";
-$password = "B5C8zUw9a1H";
-$dbname = "midwest_radio";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
+
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -41,7 +45,7 @@ $input = $_GET;
 $stations = array();
 
 //inserts the variables into a SQL query
-$firstSQLStation = "SELECT * FROM stations WHERE active = 1 AND first_station = 1";
+$firstSQLStation = "query to find the first active stations";
 $result = $conn->query($firstSQLStation);
 
 if ($result->num_rows > 0){
@@ -51,7 +55,7 @@ if ($result->num_rows > 0){
     }
 }
 
-$otherStations = "SELECT * FROM stations WHERE active = 1 AND first_station = 0";
+$otherStations = "get all the other stations";
 $result2 = $conn->query($otherStations);
 
 if ($result2->num_rows > 0){
@@ -62,7 +66,7 @@ if ($result2->num_rows > 0){
 }
 
 
-$genreActive = "SELECT DISTINCT `genre` FROM stations WHERE active = 1 ORDER BY `genre`";
+$genreActive = "getting the active genres from the stations";
 $genreActiveResults = $conn->query($genreActive);
 
 if ($genreActiveResults->num_rows > 0){
@@ -75,7 +79,7 @@ if ($genreActiveResults->num_rows > 0){
     }
 }
 //
-$typeActive = "SELECT DISTINCT `type` FROM stations WHERE active = 1 ORDER BY `type`";
+$typeActive = "getting the active type from the stations";
 $typeResults = $conn->query($typeActive);
 
 if ($typeResults->num_rows > 0){
@@ -88,7 +92,7 @@ if ($typeResults->num_rows > 0){
     }
 }
 //
-$geoActive = "SELECT DISTINCT `state` FROM stations WHERE active = 1 ORDER BY `state`";
+$geoActive = "getting the active state from the stations";
 $geoActiveResults = $conn->query($geoActive);
 
 if ($geoActiveResults->num_rows > 0){
@@ -101,7 +105,7 @@ if ($geoActiveResults->num_rows > 0){
     }
 }
 
-$popularActive = "SELECT DISTINCT * FROM popular p, stations s WHERE s.active = 1 AND s.id =  p.stations_id";
+$popularActive = "getting the popular stations";
 $popularActiveResults = $conn->query($popularActive);
 
 if ($popularActiveResults->num_rows > 0){

@@ -15,10 +15,10 @@
 	    }
 	}
 
-  $servername = "willshar.ipowermysql.com";
-  $username = "admin_user";
-  $password = "B5C8zUw9a1H";
-  $dbname = "midwest_radio";
+  $servername = "";
+  $username = "";
+  $password = "";
+  $dbname = "";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -40,10 +40,9 @@
 	$input = json_decode( $inputJSON, TRUE );
 
    //convert JSON into array
-  $id = mysql_escape_string($_POST['id']);
+//database data
 
-
-  $sqlEnter = "UPDATE stations SET active = 1, deleted = 0 WHERE id = '$id'";
+  $sqlEnter = "update the data with the new sesion data";
 
 	//executes the SQL above, sends error if there is an error
 	if ($conn->query($sqlEnter) === TRUE) {

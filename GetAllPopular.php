@@ -15,10 +15,14 @@
 	    }
 	}
 
-	$servername = "willshar.ipowermysql.com";
-	$username = "admin_user";
-	$password = "B5C8zUw9a1H";
-	$dbname = "midwest_radio";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
+
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -40,7 +44,7 @@
 
 
 	//inserts the variables into a SQL query
-	$sql2 = "SELECT p.votes, s.long_name, s.short_name FROM popular p, stations s WHERE p.stations_id = s.id AND s.active = 1  ORDER BY votes DESC";
+	$sql2 = "query to get all the votes in the database";
 	$result = $conn->query($sql2);
 
 	if ($result->num_rows > 0){
@@ -56,7 +60,7 @@
 		$response["data"] = $stations;
 	} else {
 		http_response_code(200);
-		$response = array("error"=>"No Dogs", "status"=>403);
+		$response = array("error"=>"No Votes", "status"=>403);
 	}
 
 	echo json_encode($response);

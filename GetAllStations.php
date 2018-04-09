@@ -15,15 +15,14 @@
 	    }
 	}
 
-	$servername = "willshar.ipowermysql.com";
-	$username = "admin_user";
-	$password = "B5C8zUw9a1H";
-	$dbname = "midwest_radio";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
 
-	// $servername = "localhost:8080";
-	// $username = "root";
-	// $password = "root";
-	// $dbname = "radio";
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -45,16 +44,16 @@
 
 
 	//inserts the variables into a SQL query
-	$sql2 = "SELECT * FROM stations WHERE active = 1";
+	$sql2 = "all active stations";
 	$result = $conn->query($sql2);
 
-	$sql3 = "SELECT * FROM stations WHERE active = 0 AND deleted = 0 AND user_entered = 0";
+	$sql3 = "all the pending stations";
 	$result3 = $conn->query($sql3);
 
-	$sql4 = "SELECT * FROM stations WHERE deleted = 1";
+	$sql4 = "all the deleted stations";
 	$result4 = $conn->query($sql4);
 
-	$sql5 = "SELECT * FROM stations WHERE active = 0 AND deleted = 0 AND user_entered = 1";
+	$sql5 = "all the user pending stations";
 	$result5 = $conn->query($sql5);
 
 	if ($result->num_rows > 0){

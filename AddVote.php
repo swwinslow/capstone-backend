@@ -15,14 +15,14 @@ if (!function_exists('http_response_code'))
     }
 }
 
-$servername = "willshar.ipowermysql.com";
-$username = "admin_user";
-$password = "B5C8zUw9a1H";
-$dbname = "midwest_radio";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
 
-$usernameADMIN = "csstudent";
-$passwordADMIN = "DrLinRules";
-$dbnameADMIN = "cs495_admin";
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -52,7 +52,7 @@ if( !isset($_POST['station_id']) ) {
     $station_id = mysql_escape_string($_POST['station_id']);
 
 
-    $stationQuery = "SELECT * FROM stations WHERE id = '$station_id'";
+    $stationQuery = "select the station with the id";
     $stationsQueryResults = $conn->query($stationQuery);
 
     while ($row = $stationsQueryResults->fetch_assoc()) {
@@ -60,7 +60,7 @@ if( !isset($_POST['station_id']) ) {
     }
 
     if (is_numeric($confirmed_station_id)) {
-        $voteQuery = "SELECT * FROM popular WHERE stations_id = '$confirmed_station_id'";
+        $voteQuery = "see if the station is popular";
         $voteQueryResult = $conn->query($voteQuery);
 
         while ($row = $voteQueryResult->fetch_assoc()) {
@@ -71,13 +71,13 @@ if( !isset($_POST['station_id']) ) {
             //update value
             $newVotes = $votes + 1;
 
-            $voteQuery = "UPDATE `popular` SET `votes` = '$newVotes' WHERE stations_id = '$confirmed_station_id'";
+            $voteQuery = "update th query if it is aliove";
             $voteQueryResult = $conn->query($voteQuery);
             http_response_code(200);
             $response = array("error" => "n/a", "update" => "station updated", "status" => 200);
         } else {
 
-            $voteQuery = "INSERT INTO `popular`(`stations_id`, `votes`) VALUES ('$confirmed_station_id', 1)";
+            $voteQuery = "insert the new query for the new station";
             $voteQueryResult = $conn->query($voteQuery);
             http_response_code(200);
             $response = array("error" => "n/a", "update" => "station updated", "status" => 200);

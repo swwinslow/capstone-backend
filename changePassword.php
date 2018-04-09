@@ -16,10 +16,14 @@ if (!function_exists('http_response_code'))
     }
 }
 
-    $servername = "willshar.ipowermysql.com";
-    $username = "csstudent";
-    $password = "DrLinRules";
-    $dbname = "cs495_admin";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
+
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -36,13 +40,9 @@ if (!function_exists('http_response_code'))
       exit;
     }
 
-    $token = mysql_escape_string($_POST['token']);
+    //database data
 
-    $hashedPassword =  hash('sha512', $_POST['password']);
-
-    $sqlEnter = "SELECT *
-    FROM  `token`
-    WHERE token_string =  '$token'";
+    $sqlEnter = "get thhe token";
 
     $result = $conn->query($sqlEnter);
 
@@ -65,10 +65,10 @@ if (!function_exists('http_response_code'))
 
       if($timeLength > $difference){
 
-        $sqlCheck = "UPDATE users_table SET `password_hash` = '$hashedPassword' WHERE id='$user'";
+        $sqlCheck = "update the user password";
         $resultCheck = $conn->query($sqlCheck);
 
-        $deleteSQL = "DELETE FROM `token` WHERE token_string = '$token'";
+        $deleteSQL = "now, delete the token";
         $deleteSQLResult = $conn->query($deleteSQL);
 
         http_response_code(200);

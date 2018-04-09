@@ -15,14 +15,14 @@ if (!function_exists('http_response_code'))
     }
 }
 
-$servername = "willshar.ipowermysql.com";
-$username = "admin_user";
-$password = "B5C8zUw9a1H";
-$dbname = "midwest_radio";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
 
-$usernameADMIN = "csstudent";
-$passwordADMIN = "DrLinRules";
-$dbnameADMIN = "cs495_admin";
+$usernameADMIN = "";
+$passwordADMIN = "";
+$dbnameADMIN = "";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -44,29 +44,18 @@ if ($conn->connect_error) {
 $inputJSON = file_get_contents('php://input');
 $input = json_decode( $inputJSON, TRUE ); //convert JSON into array
 
-$short_name = mysql_escape_string($_POST['short_name']);
-$long_name = mysql_escape_string($_POST['long_name']);
-$frequency = mysql_escape_string($_POST['frequency']);
-$city = mysql_escape_string($_POST['city']);
-$state = mysql_escape_string($_POST['state']);
-$slogan = mysql_escape_string($_POST['slogan']);
-$type = "N/A";
-$genre = "N/A";
-$website = "N/A";
-$stream = "N/A";
-$active = mysql_escape_string($_POST['active']);
+// all the database station data
 $user_entered = 1;
 
 //todo check to see if the slogan has quotes around it.
 
-$sqlEnter = "INSERT INTO stations (frequency, long_name, short_name, city, state, slogan, active, deleted, type, genre, stream, user_entered, website) VALUES ('$frequency', '$long_name', '$short_name', '$city', '$state', '$slogan', '$active', 0, '$type', '$genre', '$stream', '$user_entered', '$website')";
+$sqlEnter = "insert query with all the station data";
 
 if ($conn->query($sqlEnter) === TRUE) {
 
-    $sql2 = "SELECT * FROM stations WHERE long_name = '$long_name' AND short_name = '$short_name' AND stream='$stream'";
+    $sql2 = "find out what station was put in with the same data";
     $result = $conn->query($sql2);
 
-    //todo look into the larger ids of the two if they are the same...
 
     if ($result->num_rows > 0){
         $stations = array();
@@ -79,7 +68,7 @@ if ($conn->query($sqlEnter) === TRUE) {
     }
     if($user_entered == 1) {
 
-        $getAdminUsersSQL = "SELECT * FROM users_table WHERE winner = 1";
+        $getAdminUsersSQL = "query for user table with the email set";
         $adminUsers = $ADMINconn->query($getAdminUsersSQL);
 
         $message = "A new station has been added by a user! It is waiting for approval";
