@@ -51,7 +51,7 @@ if ($result->num_rows > 0){
     }
 }
 
-$otherStations = "SELECT * FROM stations WHERE active = 1 AND first_station = 0";
+$otherStations = "SELECT * FROM stations WHERE active = 1 AND first_station = 0 ORDER BY long_name";
 $result2 = $conn->query($otherStations);
 
 if ($result2->num_rows > 0){
