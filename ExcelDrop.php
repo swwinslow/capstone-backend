@@ -2,8 +2,8 @@
 /*******EDIT LINES 3-8*******/
 $DB_Server = "willshar.ipowermysql.com"; //MySQL Server
 $DB_Username = "admin_user"; //MySQL Username
-$DB_Password = "B5C8zUw9a1H";             //MySQL Password
-$DB_DBName = "midwest_radio";         //MySQL Database Name
+$DB_Password = "2a7B9z?TD";             //MySQL Password
+$DB_DBName = "south_midwest_radio";
 $DB_TBLName = "stations"; //MySQL Table Name
 $filename = "stations_drop";         //File Name
 /*******YOU DO NOT NEED TO EDIT ANYTHING BELOW THIS LINE*******/

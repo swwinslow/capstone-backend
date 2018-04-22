@@ -25,8 +25,8 @@
 
   $servername = "willshar.ipowermysql.com";
   $username = "admin_user";
-  $password = "B5C8zUw9a1H";
-  $dbname = "midwest_radio";
+  $password = "2a7B9z?TD";
+  $dbname = "south_midwest_radio";
 
 	$usernameADMIN = "csstudent";
 	$passwordADMIN = "DrLinRules";
